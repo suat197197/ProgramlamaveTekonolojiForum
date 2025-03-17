@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="HTMLSayfalari\" />
+    <Folder Include="Views\HTMLSAYFALARI\" />
   </ItemGroup>
 
 </Project>
