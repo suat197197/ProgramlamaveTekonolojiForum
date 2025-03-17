@@ -13,9 +13,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.14" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="HTMLSayfalari\" />
-    <Folder Include="Views\HTMLSAYFALARI\" />
-  </ItemGroup>
-
 </Project>
