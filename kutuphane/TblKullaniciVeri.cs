@@ -15,18 +15,17 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                SqlConnection con = b.BaglantiGetir();
-                using (con)
+               
+                using (b.connection)
                 {
                     var sql = @"SELECT k.Id ,k.TakmaAd,k.Sifre,k.EPosta,k.IP,k.Tip,k.KayitTarihi,k.GuncellemeTarihi,k.Durum FROM Kullanici k WHERE Id=@Id";
-                    List<TblKullanici> gelenData = con.Query<TblKullanici>(sql, new { Id = Id }).ToList();
-                    con.Close();
+                    List<TblKullanici> gelenData = b.connection.Query<TblKullanici>(sql, new { Id = Id }).ToList();
                     return gelenData[0];
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
         public TblKullanici? TblKullaniciKayitEkle(TblKullanici kayit)
@@ -37,8 +36,7 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                SqlConnection con = b.BaglantiGetir();
-                using (con)
+                using (b.connection)
                 {
                     var sql = @"
 			                    INSERT INTO Kullanici
@@ -59,7 +57,7 @@ namespace kutuphane
                                ,@KayitTarihi,
                                ,@GuncellemeTarihi,
                                ,@Durum);SELECT CAST(SCOPE_IDENTITY() as int)";
-                    Id = con.Query<int>(sql
+                    Id = b.connection.Query<int>(sql
                     , new
                     {
                         TakmaAd = kayit.TakmaAd,
@@ -76,7 +74,7 @@ namespace kutuphane
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
             }
             return eklenen;
         }
@@ -86,8 +84,7 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                SqlConnection con = b.BaglantiGetir();
-                using (con)
+                using (b.connection)
                 {
                     var sql = @"
 			                    UPDATE Kullanici
@@ -100,7 +97,7 @@ namespace kutuphane
       ,GuncellemeTarihi = @GuncellemeTarihi
       ,Durum = 
  WHERE Id=@Id";
-                    con.Execute(sql
+                    b.connection.Execute(sql
                    , new
                    {
                        TakmaAd = kayit.TakmaAd,
@@ -118,6 +115,7 @@ namespace kutuphane
             catch (Exception ex)
             {
                 sonuc = ex.Message;
+                throw;
             }
             return sonuc;
         }
@@ -128,26 +126,29 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                SqlConnection con = b.BaglantiGetir();
-                using (con)
+                using (b.connection)
                 {
                     var sql = @"
 			                    UPDATE Kullanici
                                 SET Durum=@Durum
                                 WHERE Id=@Id";
-                    con.Execute(sql
+                    b.connection.Execute(sql
                    , new
                    {
                        Id = Id,
                        Durum = durum
                    });
                     sonuc = "Başarılı";
+
                 }
             }
             catch (Exception ex)
             {
                 sonuc = ex.Message;
+                throw;
+                
             }
+            
             return sonuc;
         }
 

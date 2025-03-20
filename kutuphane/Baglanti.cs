@@ -9,16 +9,35 @@ namespace kutuphane
 {
     public class Baglanti
     {
+        public SqlConnection connection;
         public Baglanti()
         {
-            ConString = @"Server=DESKTOP-6UUIFOR\SQLEXPRESS; Database=proteknoforum; Trusted_Connection=True;";
+            try
+            {
+                string ConString = @"Server=DESKTOP-6UUIFOR\SQLEXPRESS; Database=proteknoforum; Trusted_Connection=True;";
+                SqlConnection connection = new SqlConnection(ConString);
+                connection.Open();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
-        public static string ConString;
-        public SqlConnection BaglantiGetir()
+        ~Baglanti()
         {
-            SqlConnection connection = new SqlConnection(ConString);
-            connection.Open();
-            return connection;
+            try
+            {
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
+
+
     }
 }
