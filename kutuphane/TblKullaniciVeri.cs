@@ -23,7 +23,7 @@ namespace kutuphane
                     return gelenData[0];
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -72,7 +72,7 @@ namespace kutuphane
                     eklenen.Id = Id ?? 0;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

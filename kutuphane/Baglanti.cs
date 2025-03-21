@@ -32,7 +32,6 @@ namespace kutuphane
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
