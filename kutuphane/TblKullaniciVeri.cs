@@ -15,7 +15,6 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-               
                 using (b.connection)
                 {
                     var sql = @"SELECT k.Id ,k.TakmaAd,k.Sifre,k.EPosta,k.IP,k.Tip,k.KayitTarihi,k.GuncellemeTarihi,k.Durum FROM Kullanici k WHERE Id=@Id";
@@ -119,7 +118,6 @@ namespace kutuphane
             }
             return sonuc;
         }
-        // 1 aktif 99 pasif kullanici durum
         public string TblKullaniciDurumDegistir(int Id, int durum)
         {
             string sonuc = "";

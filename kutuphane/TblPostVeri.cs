@@ -118,7 +118,6 @@ namespace kutuphane
             }
             return sonuc;
         }
-       
         public string TblPostDurumDegistir(int Id, int durum)
         {
             string sonuc = "";

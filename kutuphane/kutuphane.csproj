@@ -11,4 +11,19 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="KullaniciResimleri.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KullaniciResimleri.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="KullaniciResimleri.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>KullaniciResimleri.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
