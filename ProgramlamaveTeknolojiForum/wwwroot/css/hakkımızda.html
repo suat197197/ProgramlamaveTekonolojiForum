@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ProTekno Forum</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+    <link rel="stylesheet" href="anasayfa.css">
+    <Script src="js/site.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chat" />
+</head>
+<body>
+<!--Navbar-->
+     <nav class="navbar">
+       <img style=" margin-left: 25%; width: 5%;" src="img/ima-Photoroom.jpg" alt="">
+
+       <b style="margin-left: 5%; color: rgb(56, 71, 90);"> <i class="fa-solid fa-scale-balanced fa-md" style="color: #f5f5f5;"></i>  Kurallar </b>
+
+       
+
+       <button style="margin-right: 25%;" onclick="openModal('loginModal')">Giriş Yap</button>
+       <button onclick="openModal('registerModal')">Kayıt Ol</button>
+   
+       <div id="loginModal" class="modal">
+           <div class="modal-content">
+               
+                  <span class="close" onclick="closeModal('loginModal')">&times;</span>
+
+               <h2>Giriş Yap</h2>
+            <br><br><br><br><br><br><br><br>
+               <input type="text" placeholder="Kullanıcı Adı veya E-postra"><br><br>
+               <input type="password" placeholder="Şifre"><br><br>
+               <button>Giriş Yap</button>
+               <div class="google-login">
+                   <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+                   
+               </div>
+           </div>
+       </div>
+   
+       <div id="registerModal" class="modal">
+           <div class="modal-content">
+               <span class="close" onclick="closeModal('registerModal')">&times;</span>
+               <h2>Kayıt Ol</h2>
+               <br><br><br><br><br><br><br><br>
+               <input type="text" placeholder="Kullanıcı Adı"><br><br>
+               <input type="email" placeholder="E-posta"><br><br>
+               <input type="password" placeholder="Şifre"><br><br>
+               <button>Kayıt Ol</button>
+               <div class="google-login">
+                   <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+                   
+               </div>
+           </div>
+       </div>
+   
+       <script>
+           function openModal(id) {
+               document.getElementById(id).style.display = 'block';
+           }
+           function closeModal(id) {
+               document.getElementById(id).style.display = 'none';
+           }
+       </script>
+    </nav>
+           
+</body>
+
+</html>
