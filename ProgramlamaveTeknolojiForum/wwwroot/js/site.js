@@ -2,3 +2,14 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+const loginPopup = document.getElementById('loginPopup');
+const loginButton = document.getElementById('loginButton');
+const closeButton = document.getElementById('closeButton');
+
+loginButton.addEventListener('click', function() {
+  loginPopup.style.display = 'block';
+});
+
+closeButton.addEventListener('click', function() {
+  loginPopup.style.display = 'none';
+});
