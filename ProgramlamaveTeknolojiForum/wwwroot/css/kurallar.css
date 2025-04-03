@@ -170,3 +170,125 @@ border-left: 3px solid rgb(225, 229, 235);
     margin-top: 1%;
 
 }
+footer {
+    background: linear-gradient(to right, #2C3E50, #4CA1AF);
+    color: white;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 50px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-left {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .footer-left h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    font-size: 14px;
+    color: #BDC3C7;
+  }
+  
+  .footer-links,
+  .footer-contact,
+  .footer-social {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .footer-links h3,
+  .footer-contact h3,
+  .footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #ECF0F1;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #3498db;
+  }
+  
+  .footer-contact a {
+    color: #ECF0F1;
+    text-decoration: none;
+  }
+  
+  .footer-contact p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .footer-social a {
+    color: #ECF0F1;
+    margin-right: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social a:hover {
+    color: #3498db;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #BDC3C7;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-left,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+      margin-bottom: 20px;
+    }
+  
+    .footer-social a {
+      margin-right: 0;
+    }
+  }
+  
