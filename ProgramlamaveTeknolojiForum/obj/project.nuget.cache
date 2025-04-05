@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "47bGME2iXUI=",
+  "dgSpecHash": "Qo37+LVhgmU=",
   "success": true,
   "projectFilePath": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\ProgramlamaveTeknolojiForum.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\suat\\.nuget\\packages\\ckeditor-full\\4.25.1\\ckeditor-full.4.25.1.nupkg.sha512"
+  ],
   "logs": []
 }

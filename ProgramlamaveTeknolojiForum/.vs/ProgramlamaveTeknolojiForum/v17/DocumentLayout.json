@@ -3,12 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|c:\\users\\suat\\source\\repos\\programlamavetekonolojiforum\\programlamaveteknolojiforum\\wwwroot\\css\\hakk\u0131m\u0131zda.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|solutionrelative:wwwroot\\css\\hakk\u0131m\u0131zda.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B1054404-D94D-40F0-979D-206705332448}|..\\kutuphane\\kutuphane.csproj|c:\\users\\suat\\source\\repos\\programlamavetekonolojiforum\\kutuphane\\tblpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|c:\\users\\suat\\source\\repos\\programlamavetekonolojiforum\\programlamaveteknolojiforum\\wwwroot\\css\\anasayfa.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|solutionrelative:wwwroot\\css\\anasayfa.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|c:\\users\\suat\\source\\repos\\programlamavetekonolojiforum\\programlamaveteknolojiforum\\wwwroot\\css\\konu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|solutionrelative:wwwroot\\css\\konu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F27278CB-EB68-42C5-A488-097D0566C66D}|ProgramlamaveTeknolojiForum.csproj|c:\\users\\suat\\source\\repos\\programlamavetekonolojiforum\\programlamaveteknolojiforum\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -98,43 +101,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "hakk\u0131m\u0131zda.html",
-              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\hakk\u0131m\u0131zda.html",
-              "RelativeDocumentMoniker": "wwwroot\\css\\hakk\u0131m\u0131zda.html",
-              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\hakk\u0131m\u0131zda.html",
-              "RelativeToolTip": "wwwroot\\css\\hakk\u0131m\u0131zda.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T14:39:05.705Z",
+              "Title": "TblPost.cs",
+              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblPost.cs",
+              "RelativeDocumentMoniker": "..\\kutuphane\\TblPost.cs",
+              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblPost.cs",
+              "RelativeToolTip": "..\\kutuphane\\TblPost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T20:09:53.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "konu.html",
+              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\konu.html",
+              "RelativeDocumentMoniker": "wwwroot\\css\\konu.html",
+              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\konu.html",
+              "RelativeToolTip": "wwwroot\\css\\konu.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-03T15:15:05.635Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T23:57:35.196Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T23:57:25.039Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
@@ -146,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Error.cshtml",
@@ -158,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -170,20 +161,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA6wA0AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T23:53:43.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T23:53:43.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -195,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
@@ -213,27 +203,49 @@
               "RelativeDocumentMoniker": "wwwroot\\css\\anasayfa.html",
               "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\anasayfa.html",
               "RelativeToolTip": "wwwroot\\css\\anasayfa.html",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAAABQBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG8BAAAAAAAAAAAAACEBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-22T21:59:30.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-22T21:59:30.676Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T23:57:25.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBZwBwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T23:57:35.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "vs.css",
               "DocumentMoniker": "C:\\Users\\suat\\AppData\\Local\\Temp\\e39aca17-aedb-41af-aa77-ec060e42b927_highlight (1).zip.highlight (1).zip\\styles\\vs.css",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\e39aca17-aedb-41af-aa77-ec060e42b927_highlight (1).zip.highlight (1).zip\\styles\\vs.css",
               "ToolTip": "C:\\Users\\suat\\AppData\\Local\\Temp\\e39aca17-aedb-41af-aa77-ec060e42b927_highlight (1).zip.highlight (1).zip\\styles\\vs.css [Read Only]",
               "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\e39aca17-aedb-41af-aa77-ec060e42b927_highlight (1).zip.highlight (1).zip\\styles\\vs.css [Read Only]",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-04-03T00:41:37.137Z",
               "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "anasayfa.css",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\anasayfa.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\anasayfa.css",
@@ -245,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\css\\index.html",
@@ -257,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -269,19 +281,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "bootstrap.css",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
               "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
               "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAIBZwEUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-03-22T21:56:37.594Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "bootstrap.js",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\ProgramlamaveTeknolojiForum\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
@@ -293,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "KullaniciResimleri.Designer.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\KullaniciResimleri.Designer.cs",
               "RelativeDocumentMoniker": "..\\kutuphane\\KullaniciResimleri.Designer.cs",
@@ -305,19 +317,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "TblKullaniciVeri.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblKullaniciVeri.cs",
               "RelativeDocumentMoniker": "..\\kutuphane\\TblKullaniciVeri.cs",
               "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblKullaniciVeri.cs",
               "RelativeToolTip": "..\\kutuphane\\TblKullaniciVeri.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAJkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwJkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T20:20:49.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "TblKullanici.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblKullanici.cs",
               "RelativeDocumentMoniker": "..\\kutuphane\\TblKullanici.cs",
@@ -329,13 +341,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "TblPostVeri.cs",
               "DocumentMoniker": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblPostVeri.cs",
               "RelativeDocumentMoniker": "..\\kutuphane\\TblPostVeri.cs",
               "ToolTip": "C:\\Users\\suat\\source\\repos\\ProgramlamaveTekonolojiForum\\kutuphane\\TblPostVeri.cs",
               "RelativeToolTip": "..\\kutuphane\\TblPostVeri.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAHgAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwHgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T19:59:21.235Z"
             }

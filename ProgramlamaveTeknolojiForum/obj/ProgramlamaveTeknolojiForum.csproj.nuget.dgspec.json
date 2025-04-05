@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "ckeditor-full": {
+              "target": "Package",
+              "version": "[4.25.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
