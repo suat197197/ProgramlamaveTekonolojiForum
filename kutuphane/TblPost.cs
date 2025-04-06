@@ -13,6 +13,7 @@ namespace kutuphane
         public int IdKullanici { get; set; }
         public int IdAltKategori { get; set; }
         public int IdUstPost { get; set; }
+        public int Tip { get; set; }
         public string IP { get; set; }
         public string Baslik { get; set; }
         public DateTime KayitTarihi { get; set; }

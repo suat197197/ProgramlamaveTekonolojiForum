@@ -11,8 +11,4 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ckeditor-full" Version="4.25.1" />
-  </ItemGroup>
-
 </Project>
