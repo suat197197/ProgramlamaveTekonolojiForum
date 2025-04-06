@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>ProTekno Forum</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
-    <link rel="stylesheet" href="konu.css">
+    <link rel="stylesheet" href="sorucevap.css">
     <Script src="js/site.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -80,7 +80,7 @@
 
 <div class="baslık">
     <br>
-    <p style=" margin-left:2%; color:whitesmoke; text-decoration: underline;">Anasayfa > Konular > Yazılım</p>
+    <p style=" margin-left:2%; color:whitesmoke; text-decoration: underline;">Anasayfa > Soru-Cevap > Yazılım </p>
     <h2 style=" margin-left:2%; color:whitesmoke"> Yazılıma Nereden Başlamalıyım?</h2>
     <p style=" margin-left:2%; color:whitesmoke">3 Nisan 2025</p>
 </div>
@@ -89,6 +89,13 @@
 <div class="cevaplar">
     <div class="forum-container">
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
+        
+        
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -104,7 +111,13 @@
             <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
         </div>
     </div>
+
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img  src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -123,6 +136,12 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
+          
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -139,6 +158,11 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -155,6 +179,11 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -171,6 +200,11 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -187,6 +221,11 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -203,6 +242,11 @@
         </div>
     </div>
     <div class="post">
+        <div class="vote-container">
+            <div class="vote-button" id="upVote">▲</div>
+            <div class="vote-count" id="voteCount">0</div>
+            <div class="vote-button" id="downVote">▼</div>
+          </div>
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -257,6 +301,36 @@
             document.getElementById("replyText").value = "";
         }
     </script>
+    <script>
+        let voteGiven = false;
+        let count = 0;
+    
+        const voteCountEl = document.getElementById('voteCount');
+        const upVoteBtn = document.getElementById('upVote');
+        const downVoteBtn = document.getElementById('downVote');
+    
+        upVoteBtn.addEventListener('click', () => {
+          if (!voteGiven) {
+            count++;
+            updateVote();
+          }
+        });
+    
+        downVoteBtn.addEventListener('click', () => {
+          if (!voteGiven) {
+            count--;
+            updateVote();
+          }
+        });
+    
+        function updateVote() {
+          voteGiven = true;
+          voteCountEl.innerText = count;
+          upVoteBtn.classList.add('disabled');
+          downVoteBtn.classList.add('disabled');
+        }
+      </script>
+
 
 <br><br><br><br><br><br>
 </div>
