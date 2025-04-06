@@ -9,7 +9,6 @@ namespace kutuphane
      public class TblPost
     {
         public int Id { get; set; }
-        public int MyProperty { get; set; }
         public int IdKullanici { get; set; }
         public int IdAltKategori { get; set; }
         public int IdUstPost { get; set; }

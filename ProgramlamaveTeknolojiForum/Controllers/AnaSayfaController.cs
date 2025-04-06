@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using kutuphane;
+using Microsoft.AspNetCore.Mvc;
+using ProgramlamaveTeknolojiForum.Models;
 
 namespace ProgramlamaveTeknolojiForum.Controllers
 {
@@ -6,7 +8,10 @@ namespace ProgramlamaveTeknolojiForum.Controllers
     {
         public IActionResult AnaSayfa()
         {
-            return View();
+            AnaSayfaModel m = new AnaSayfaModel();
+            TblPostVeri veri = new TblPostVeri();
+            m.Sorular= veri.AnaSayfaVeriGetir();
+            return View(m);
         }
     }
 }

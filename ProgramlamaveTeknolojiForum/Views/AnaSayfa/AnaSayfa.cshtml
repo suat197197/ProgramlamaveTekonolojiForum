@@ -1,14 +1,15 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model ProgramlamaveTeknolojiForum.Models.AnaSayfaModel
 @{
 }
 <div class="konu">
 
 
     <div class="ustbolme">
-        <button style="margin-left: 25%;"> <a href="anasayfa.html"> <i class="fa-solid fa-house fd-md" style="color: #ffffff;"></i>Ana sayfa</a></button>
-        //değişecek
+        <button style="margin-left: 25%;"> <a asp-action="AnaSayfa"> <i class="fa-solid fa-house fd-md" style="color: #ffffff;"></i>Ana sayfa</a></button>
+      @*   //değişecek *@
         <button><a href="anasayfa.html"><i class="fa-solid fa-comments" style="color: #f5f5f5;"></i>Konular</a></button>
         <button><a href=""><i class="fa-regular fa-calendar-days" style="color: #f2f2f2;"></i>Neler Yeni</a></button>
         <button><a href=""> <i class="fa-solid fa-user" style="color: #e6e7ea;"></i>Üyeler</a></button>
@@ -25,111 +26,21 @@
 
 
         <ul>
+          
+            @foreach (var item in Model.Sorular)
+            {
             <li>
                 <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="sorucevap.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
+                <a href="sorucevap.html"> <h1>@item.PostBaslik</h1></a>
+                <a>@Html.Raw(item.Icerik)</a>
 
                 <label for="">Soru-Cevap</label>
 
                 <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
                 <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Konu</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Soru-Cevap</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Konu</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Soru-Cevap</label>
-
-
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Konu</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Soru-Cevap</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Konu</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Soru-Cevap</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-            <li>
-                <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="img/indir.png">
-                <a href="konu.html"> <h1>Yazılıma Nerden başlamalıyım?</h1></a>
-                <a> Merhaba arkadaşlar Yazılıma nereden başlamalıyım? Hangi platformlardan eğitim almalıyım?</a>
-                <label for="">Konu</label>
-                <i class="fa-regular fa-comment" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">25</a> </i>
-                <i class="fa-regular fa-eye" style=" margin-top: 0%; float: right; color: #3575c9;"> <a style="color: #3575c9;">21K</a></i>
-
-            </li>
-
-
-
-
-
-
-
+             </li>
+            }
+          
 
         </ul>
 

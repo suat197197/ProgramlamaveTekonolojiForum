@@ -15,10 +15,10 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"SELECT k.Id ,k.TakmaAd,k.Sifre,k.EPosta,k.IP,k.Tip,k.KayitTarihi,k.GuncellemeTarihi,k.Durum FROM Kullanici k WHERE Id=@Id";
-                    List<TblKullanici> gelenData = b.connection.Query<TblKullanici>(sql, new { Id = Id }).ToList();
+                    List<TblKullanici> gelenData = con.Query<TblKullanici>(sql, new { Id = Id }).ToList();
                     return gelenData[0];
                 }
             }
@@ -35,7 +35,7 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"
 			                    INSERT INTO Kullanici
@@ -56,7 +56,7 @@ namespace kutuphane
                                ,@KayitTarihi,
                                ,@GuncellemeTarihi,
                                ,@Durum);SELECT CAST(SCOPE_IDENTITY() as int)";
-                    Id = b.connection.Query<int>(sql
+                    Id = con.Query<int>(sql
                     , new
                     {
                         TakmaAd = kayit.TakmaAd,
@@ -83,7 +83,7 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"
 			                    UPDATE Kullanici
@@ -96,7 +96,7 @@ namespace kutuphane
       ,GuncellemeTarihi = @GuncellemeTarihi
       ,Durum = 
  WHERE Id=@Id";
-                    b.connection.Execute(sql
+                    con.Execute(sql
                    , new
                    {
                        TakmaAd = kayit.TakmaAd,
@@ -124,13 +124,13 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"
 			                    UPDATE Kullanici
                                 SET Durum=@Durum
                                 WHERE Id=@Id";
-                    b.connection.Execute(sql
+                    con.Execute(sql
                    , new
                    {
                        Id = Id,
