@@ -24,8 +24,16 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/suat/source/repos/ProgramlamaveTekonolojiForum/ProgramlamaveTeknolojiForum/Views/AnaSayfa/AnaSayfa.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hU2F5ZmFcQW5hU2F5ZmEuY3NodG1s
+[C:/Users/suat/source/repos/ProgramlamaveTekonolojiForum/ProgramlamaveTeknolojiForum/Views/Forum/AnaSayfa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ydW1cQW5hU2F5ZmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/suat/source/repos/ProgramlamaveTekonolojiForum/ProgramlamaveTeknolojiForum/Views/Forum/Konu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ydW1cS29udS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/suat/source/repos/ProgramlamaveTekonolojiForum/ProgramlamaveTeknolojiForum/Views/Forum/SoruCevap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ydW1cU29ydUNldmFwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/suat/source/repos/ProgramlamaveTekonolojiForum/ProgramlamaveTeknolojiForum/Views/Shared/Components/Navbar/Default.cshtml]

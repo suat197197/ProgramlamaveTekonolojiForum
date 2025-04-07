@@ -152,16 +152,17 @@ namespace kutuphane
             return sonuc;
         }
 
-        public List<VMAnaSayfa> AnaSayfaVeriGetir()
+        public List<VMPost> AnaSayfaVeriGetir()
         {
             try
             {
                 Baglanti b = new Baglanti();
                 SqlConnection con = b.BaglantiGetir();
-                List<VMAnaSayfa> veri = new List<VMAnaSayfa>();
+                List<VMPost> veri = new List<VMPost>();
                 using (con)
                 {
-                    var sql = @"SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
 , K.Id AS KonuId, ka.Baslik KategoriBaslik
 ,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
 ,1 PostTip,p.IdUstPost,p.Icerik
@@ -169,10 +170,99 @@ FROM Konu k
 INNER JOIN Kategori ka on k.Id=ka.IdKonu
 INNER JOIN Post p on p.IdKategori=ka.Id
 INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
-WHERE K.Id=1 AND ka.Durum=1 and p.Durum=1
+WHERE ka.Durum=1 and p.Durum=1
 and p.IdUstPost=0
-order by p.GoruntulenmeSayi desc";
-                    veri = con.Query<VMAnaSayfa>(sql).ToList();
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
+                    return veri;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<VMPost> SorularSayfaVeriGetir()
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlConnection con = b.BaglantiGetir();
+                List<VMPost> veri = new List<VMPost>();
+                using (con)
+                {
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+, K.Id AS KonuId, ka.Baslik KategoriBaslik
+,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
+,1 PostTip,p.IdUstPost,p.Icerik
+FROM Konu k 
+INNER JOIN Kategori ka on k.Id=ka.IdKonu
+INNER JOIN Post p on p.IdKategori=ka.Id
+INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+WHERE ka.IdKonu=1 and ka.Durum=1 and p.Durum=1
+and p.IdUstPost=0
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
+                    return veri;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<VMPost> KonularSayfaVeriGetir()
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlConnection con = b.BaglantiGetir();
+                List<VMPost> veri = new List<VMPost>();
+                using (con)
+                {
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+, K.Id AS KonuId, ka.Baslik KategoriBaslik
+,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
+,1 PostTip,p.IdUstPost,p.Icerik
+FROM Konu k 
+INNER JOIN Kategori ka on k.Id=ka.IdKonu
+INNER JOIN Post p on p.IdKategori=ka.Id
+INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+WHERE ka.IdKonu=2 and ka.Durum=1 and p.Durum=1
+and p.IdUstPost=0
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
                     return veri;
                 }
             }

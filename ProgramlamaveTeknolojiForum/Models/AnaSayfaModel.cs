@@ -6,7 +6,7 @@ namespace ProgramlamaveTeknolojiForum.Models
 {
     public class AnaSayfaModel
     {
-       public List<VMAnaSayfa> Sorular = new List<VMAnaSayfa>();
+       public List<VMPost> KonularSorular = new List<VMPost>();
 
     }
 }

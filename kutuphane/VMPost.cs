@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kutuphane
 {
-    public class VMAnaSayfa
+    public class VMPost
     {
         public int KulaniciId { get; set; }
         public byte?[] Resim { get; set; }
@@ -23,6 +23,7 @@ namespace kutuphane
         public int PostTip { get; set; }
         public int IdUstPost { get; set; }
         public string Icerik { get; set; }
+        public int YorumSayi { get; set; }
 
 
     }
