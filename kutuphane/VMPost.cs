@@ -24,6 +24,9 @@ namespace kutuphane
         public int IdUstPost { get; set; }
         public string Icerik { get; set; }
         public int YorumSayi { get; set; }
+        public int IdUstKategori { get; set; }
+        public string UstKategoriAdi { get; set; }
+
 
 
     }

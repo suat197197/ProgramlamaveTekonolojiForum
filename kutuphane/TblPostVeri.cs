@@ -165,11 +165,12 @@ namespace kutuphane
 SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
 , K.Id AS KonuId, ka.Baslik KategoriBaslik
 ,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
-,1 PostTip,p.IdUstPost,p.Icerik
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
 FROM Konu k 
 INNER JOIN Kategori ka on k.Id=ka.IdKonu
 INNER JOIN Post p on p.IdKategori=ka.Id
 INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
 WHERE ka.Durum=1 and p.Durum=1
 and p.IdUstPost=0
 order by p.GoruntulenmeSayi desc
@@ -205,11 +206,14 @@ order by b1.GoruntulenmeSayi desc
 SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
 , K.Id AS KonuId, ka.Baslik KategoriBaslik
 ,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
-,1 PostTip,p.IdUstPost,p.Icerik
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
+
 FROM Konu k 
 INNER JOIN Kategori ka on k.Id=ka.IdKonu
 INNER JOIN Post p on p.IdKategori=ka.Id
 INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
+
 WHERE ka.IdKonu=1 and ka.Durum=1 and p.Durum=1
 and p.IdUstPost=0
 order by p.GoruntulenmeSayi desc
@@ -245,11 +249,14 @@ order by b1.GoruntulenmeSayi desc
 SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
 , K.Id AS KonuId, ka.Baslik KategoriBaslik
 ,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
-,1 PostTip,p.IdUstPost,p.Icerik
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
+
 FROM Konu k 
 INNER JOIN Kategori ka on k.Id=ka.IdKonu
 INNER JOIN Post p on p.IdKategori=ka.Id
 INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
+
 WHERE ka.IdKonu=2 and ka.Durum=1 and p.Durum=1
 and p.IdUstPost=0
 order by p.GoruntulenmeSayi desc

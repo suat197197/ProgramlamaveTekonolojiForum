@@ -11,6 +11,8 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             AnaSayfaModel m = new AnaSayfaModel();
             TblPostVeri veri = new TblPostVeri();
             m.KonularSorular= veri.AnaSayfaVeriGetir();
+            TblKAtegoriVeri verik = new TblKAtegoriVeri();
+            m.KonuSoruKategori = verik.TumKategoriVeriGetir();
             return View(m);
         }
         public IActionResult SoruCevap()
@@ -19,6 +21,8 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             TblPostVeri veri = new TblPostVeri();
 
             m.Sorular = veri.SorularSayfaVeriGetir();
+            TblKAtegoriVeri verik = new TblKAtegoriVeri();
+            m.SoruKategori = verik.SoruKategoriVeriGetir();
             return View(m);
         }
         public IActionResult Konu()
@@ -26,6 +30,8 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             KonuModel m = new KonuModel();
             TblPostVeri veri = new TblPostVeri();
             m.Konular = veri.KonularSayfaVeriGetir();
+            TblKAtegoriVeri verik = new TblKAtegoriVeri();
+            m.KonuKategori = verik.KonuKategoriVeriGetir();
             return View(m);
         }
     }
