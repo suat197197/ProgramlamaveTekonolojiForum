@@ -84,16 +84,13 @@ margin-left: 0px;
     margin-left: 68%;
     border: 0px solid white;
     height: 1100px;
-    margin-top: -62.5%;
+    margin-top: -15%;
     margin-right: 22%;
     text-align: left;
-   
-    
-    
     
 }
 
-.popup-btn {
+.sepopup-btn {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -104,7 +101,7 @@ margin-left: 0px;
         }
 
         /* Pop-up Arkaplanı */
-        .popup {
+        .sepopup {
             display: none;
             position: fixed;
             top: 0;
@@ -116,7 +113,7 @@ margin-left: 0px;
        
 
         /* Pop-up İçeriği */
-        .popup-content {
+        .sepopup-content {
             background: white;
             width: 500px;
             padding: 35px;
@@ -132,14 +129,14 @@ margin-left: 0px;
             
 
         }
-        .popup-content button{
+        .sepopup-content button{
             height: 30px;
             width: 100%;
             border: 1px solid white;
             background-color:rgb(36, 45, 56);
             
         }
-        .popup-content a{
+        .sepopup-content a{
             text-decoration: none;
             color: whitesmoke;
         }
@@ -339,7 +336,7 @@ border-left: 3px solid rgb(225, 229, 235);
 }
 
 
-.search-container {
+.search-container1 {
     display: flex;
     align-items: center;
     background-color: rgb(38, 43, 49);
@@ -348,7 +345,7 @@ border-left: 3px solid rgb(225, 229, 235);
     width: 250px;
     height: 35px;
 }
-.search-container input[type="text"] {
+.search-container1 input[type="text"] {
     border: none;
     outline: none;
     font-size: 16px;
@@ -360,7 +357,7 @@ border-left: 3px solid rgb(225, 229, 235);
  input[type="text"]::placeholder {
     color: #b0b0b0;
 }
-.search-button {
+.search-button1 {
     background: none;
     border: none;
     cursor: pointer;
@@ -368,7 +365,7 @@ border-left: 3px solid rgb(225, 229, 235);
     align-items: center;
     padding-right: 5px;
 }
-.search-button img {
+.search-button1 img {
     width: 18px;
     height: 18px;
     filter: invert(70%);
@@ -411,7 +408,7 @@ border-left: 3px solid rgb(225, 229, 235);
     font-size: 14px;
 }
 
-.popupf {
+.sepopupf {
     display: none;
     position: fixed;
     left: 0;
@@ -423,7 +420,7 @@ border-left: 3px solid rgb(225, 229, 235);
     align-items: center;
 }
 
-.popup-footer {
+.sepopup-footer {
     background-color:rgb(20,25,31);
     padding: 20px;
    
@@ -432,25 +429,25 @@ border-left: 3px solid rgb(225, 229, 235);
     position: relative;
 }
 
-.popup-footer h2 {
+.sepopup-footer h2 {
     text-align: center;
 }
 
-.popup-footer  form {
+.sepopup-footer  form {
     display: flex;
     flex-direction: column;
 }
 
-.popup-footer  label {
+.sepopup-footer  label {
     margin-top: 10px;
 }
 
-.popup-footer  input, .popup-footer textarea {
+.sepopup-footer  input, .sepopup-footer textarea {
     padding: 8px;
     margin-top: 5px;
 }
 
-.popup-footer  button {
+.sepopup-footer  button {
     margin-top: 15px;
     padding: 10px;
     background-color: rgb(27, 36, 48);
@@ -459,7 +456,7 @@ border-left: 3px solid rgb(225, 229, 235);
     cursor: pointer;
 }
 
-.popup-footer button:hover {
+.sepopup-footer button:hover {
     background-color: #16295f;
 }
 

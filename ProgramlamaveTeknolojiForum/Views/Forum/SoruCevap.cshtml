@@ -223,37 +223,10 @@
 </script>
 <br><br><br>
 <div class="kategori">
-    
-            <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> Yazılım</a>
+    @foreach (var item in Model.SoruKategori){
+            <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> @item.KategoriAdi</a>
             <br>
-            <a> Programlama</a>
-            <br>
-            <a> <i class="fa-solid fa-mobile" style="color: #51a7d2;"></i> Mobil</label>
-            <br><br>
-            <a>Donanım</a>
-            <br>
-            <a>C#</a>
-            <br>
-            <a>Java</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-            <br>
-            <a>Html</a>
-
-            <br>
-            <a>Makale</a>
+    }
 </div>
         </div>
         <br><br><br><br><br>
