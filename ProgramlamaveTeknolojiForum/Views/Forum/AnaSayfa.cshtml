@@ -104,16 +104,16 @@
     <div class="sagtaraf">
         <div>
             <button onclick="openPopup()" type="submit"  href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
-            <button onclick="openPopup()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
-            <div class="sepopup" id="sepopup" >
+            <div class="sepopup" id="sepopup">
                 <div class="sepopup-content">
                     <div class="konuacbaslık">
                         <br>
                         <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
                     </div>
                     <br>
-                    @foreach (var item in Model.KonuSoruKategori) {
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@item.KategoriAdi</a></button>
+                    @foreach (var item in Model.SoruKategori)
+                    {
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@(item.KategoriAdi)</a></button>
                         <br>
                     }
 
@@ -131,11 +131,50 @@
                 }
 
 
+               
+            </script>
+
+
+
+            <button onclick="openPopup1()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
+            <div class="sepopup" id="sepopup1" >
+                <div class="sepopup-content">
+                    <div class="konuacbaslık">
+                        <br>
+                        <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
+                    </div>
+                    <br>
+                    @foreach (var item in Model.KonuKategori) {
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@item.KategoriAdi</a></button>
+                        <br>
+                    }
+
+                </div>
+            </div>
+
+            <script>
+
+                function openPopup1() {
+                document.getElementById("sepopup1").style.display = "block";
+                }
+
+                function closePopup1() {
+                document.getElementById("sepopup1").style.display = "none";
+                }
+
+
                 // Kullanıcı pop-up dışına tıklarsa kapansın
                 window.onclick = function(event) {
-                let popup = document.getElementById("sepopup");
+                  let popup = document.getElementById("sepopup");
                 if (event.target == popup) {
                 popup.style.display = "none";
+                }
+
+
+
+                let popup1 = document.getElementById("sepopup1");
+                if (event.target == popup1) {
+                popup1.style.display = "none";
                 }
                 }
             </script>
@@ -160,7 +199,7 @@
         <div class="kategori">
             @foreach (var item in Model.KonuSoruKategori)
             {
-                <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>@item.KategoriAdi</a>
+                <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>@( item.UstKategoriAdi+"-"+ item.KategoriAdi)</a>
                 <br>
             }
 </div>

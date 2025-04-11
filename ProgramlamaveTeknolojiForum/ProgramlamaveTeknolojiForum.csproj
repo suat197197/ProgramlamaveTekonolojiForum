@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="ViewComponents\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 

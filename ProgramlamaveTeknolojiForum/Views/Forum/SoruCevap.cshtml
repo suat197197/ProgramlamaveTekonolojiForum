@@ -136,99 +136,110 @@
             
         </div>
          
-        <div class="sagtaraf">
-<div>
-    <button onclick="openPopup()" type="submit"  href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
-
-    <button onclick="openPopup()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
-
-
-
-                <div class="popup" id="popup">
-                    <div class="popup-content">
-<div class="konuacbaslık">
-    <br>
-    <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
-</div>
-<br>
-                        
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
+      <div class="sagtaraf">
+        <div>
+            <button onclick="openPopup()" type="submit"  href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
+            <div class="popup" id="sepopup">
+                <div class="popup-content">
+                    <div class="konuacbaslık">
                         <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-                        <br>
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">Yazılım</a></button>
-            
-                        
+                        <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
                     </div>
+                    <br>
+                    @foreach (var item in Model.SoruKategori)
+                    {
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@(item.KategoriAdi)</a></button>
+                        <br>
+                    }
+
                 </div>
-            
-                <script>
-                    
-                    function openPopup() {
-                        document.getElementById("popup").style.display = "block";
-                    }
-            
-                    function closePopup() {
-                        document.getElementById("popup").style.display = "none";
-                    }
-              
-            
-                    // Kullanıcı pop-up dışına tıklarsa kapansın
-                    window.onclick = function(event) {
-                        let popup = document.getElementById("popup");
-                        if (event.target == popup) {
-                            popup.style.display = "none";
-                        }
-                    }
-                </script>
+            </div>
 
-</div>
+            <script>
 
-<div class="search-container">
-    <button class="search-button" onclick="search()">
-        <img src="https://cdn-icons-png.flaticon.com/512/482/482631.png" alt="Ara">
-    </button>
-    <input type="text" id="search-box" placeholder="Forumda Ara">
-</div>
-<script>
-    function search() {
-        let query = document.getElementById("search-box").value;
-        if(query) {
+                function openPopup1() {
+                document.getElementById("sepopup").style.display = "block";
+                }
+
+                function closePopup1() {
+                document.getElementById("sepopup").style.display = "none";
+                }
+
+
+               
+            </script>
+
+
+
+            <button onclick="openPopup1()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
+            <div class="popup" id="sepopup1" >
+                <div class="popup-content">
+                    <div class="konuacbaslık">
+                        <br>
+                        <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
+                    </div>
+                    <br>
+                    @foreach (var item in Model.KonuKategori) {
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@item.KategoriAdi</a></button>
+                        <br>
+                    }
+
+                </div>
+            </div>
+
+            <script>
+
+                function openPopup() {
+                document.getElementById("sepopup1").style.display = "block";
+                }
+
+                function closePopup() {
+                document.getElementById("sepopup1").style.display = "none";
+                }
+
+
+                // Kullanıcı pop-up dışına tıklarsa kapansın
+                window.onclick = function(event) {
+                  let popup = document.getElementById("sepopup");
+                if (event.target == popup) {
+                popup.style.display = "none";
+                }
+
+
+
+                let popup1 = document.getElementById("sepopup1");
+                if (event.target == popup1) {
+                popup1.style.display = "none";
+                }
+                }
+            </script>
+
+        </div>
+
+        <div class="search-container">
+            <button class="search-button" onclick="search()">
+                <img src="https://cdn-icons-png.flaticon.com/512/482/482631.png" alt="Ara">
+            </button>
+            <input type="text" id="search-box" placeholder="Forumda Ara">
+        </div>
+        <script>
+            function search() {
+            let query = document.getElementById("search-box").value;
+            if(query) {
             window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
-        }
-    }
-</script>
-<br><br><br>
-<div class="kategori">
-    @foreach (var item in Model.SoruKategori){
-            <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> @item.KategoriAdi</a>
-            <br>
-    }
+            }
+            }
+        </script>
+        <br><br><br>
+        <div class="kategori">
+            @foreach (var item in Model.SoruKategori)
+            {
+                <a> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>@item.KategoriAdi</a>
+                <br>
+            }
 </div>
         </div>
+        
         <br><br><br><br><br>
         <footer class="footer">
             <div class="footer-content">

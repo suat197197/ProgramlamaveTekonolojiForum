@@ -20,14 +20,21 @@ namespace kutuphane
                 List<TblKategori> veri = new List<TblKategori>();
                 using (con)
                 {
-                    var sql = @"select ka.Id as IdKategori,uk.Id as IdUstKategori ,
+                    var sql = @"with bilgi as
+(select ka.Id as IdKategori,uk.Id as IdUstKategori ,
 ka.Baslik KategoriAdi,uk.Adi as UstKategoriAdi,k.Id as IdKonu
 ,k.Adi as KonuAdi
   from
 konu k Inner join UstKategori uk on k.Id=uk.IdKonu
 Inner join Kategori ka on ka.IdUstKategori=uk.Id 
 where 
-ka.Durum=1
+ka.Durum=1 
+ ),bilgi2 as (
+ select top  10  count(*) as sayi,p.IdKategori from Post p
+ group by p.IdKategori
+ order by count(*)
+ ) select b.* from bilgi b
+ Inner join bilgi2 b2  on b2.IdKategori=b.IdKategori
 ";
                     veri = con.Query<TblKategori>(sql).ToList();
                     return veri;

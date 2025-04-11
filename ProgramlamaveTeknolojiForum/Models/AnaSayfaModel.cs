@@ -9,6 +9,9 @@ namespace ProgramlamaveTeknolojiForum.Models
        public List<VMPost> KonularSorular = new List<VMPost>();
        
        public List<TblKategori> KonuSoruKategori = new List<TblKategori>();
+        public List<TblKategori> SoruKategori = new List<TblKategori>();
+        public List<TblKategori> KonuKategori = new List<TblKategori>();
+
 
     }
 }

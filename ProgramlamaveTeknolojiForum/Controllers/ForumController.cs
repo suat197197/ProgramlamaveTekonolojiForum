@@ -13,6 +13,8 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             m.KonularSorular= veri.AnaSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.KonuSoruKategori = verik.TumKategoriVeriGetir();
+            m.SoruKategori = verik.SoruKategoriVeriGetir();
+            m.KonuKategori=verik.KonuKategoriVeriGetir();
             return View(m);
         }
         public IActionResult SoruCevap()
@@ -23,6 +25,9 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             m.Sorular = veri.SorularSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.SoruKategori = verik.SoruKategoriVeriGetir();
+            m.KonuKategori = verik.KonuKategoriVeriGetir();
+
+
             return View(m);
         }
         public IActionResult Konu()
