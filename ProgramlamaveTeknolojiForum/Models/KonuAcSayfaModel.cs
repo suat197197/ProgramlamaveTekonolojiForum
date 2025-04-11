@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using kutuphane;
 
-namespace kutuphane
+namespace ProgramlamaveTeknolojiForum.Models
 {
-     public class TblPost
+    public class KonuAcSayfaModel
     {
         public int Id { get; set; }
         public int IdKullanici { get; set; }
@@ -19,6 +15,5 @@ namespace kutuphane
         public int GoruntulenmeSayi { get; set; }
         public int Durum { get; set; }
         public string Icerik { get; set; }
-
     }
 }

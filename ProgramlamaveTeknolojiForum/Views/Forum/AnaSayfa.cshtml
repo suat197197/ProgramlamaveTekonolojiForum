@@ -113,7 +113,12 @@
                     <br>
                     @foreach (var item in Model.SoruKategori)
                     {
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@(item.KategoriAdi)</a></button>
+
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>
+
+                            <a asp-action="KonuAc" asp-route-id="@item.IdKategori">@(item.KategoriAdi)</a>
+                           
+                         </button>
                         <br>
                     }
 

@@ -39,5 +39,27 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             m.KonuKategori = verik.KonuKategoriVeriGetir();
             return View(m);
         }
+        [HttpGet]
+        public IActionResult KonuAc(int id)
+        {
+            KonuAcSayfaModel m = new KonuAcSayfaModel();
+             m.IdKategori = id;
+           
+            
+            return View(m);
+        }
+        [HttpPost]
+        public IActionResult KonuAc(KonuAcSayfaModel model)
+        {
+            TblPostVeri veri = new TblPostVeri();
+            TblPost post = new TblPost();
+            post.Baslik = model.Baslik;
+            post.Icerik = model.Icerik;
+            post.IdKategori = model.IdKategori;
+            veri.TblPostKayitEkle(post);
+       
+            return View();
+        }
+
     }
 }

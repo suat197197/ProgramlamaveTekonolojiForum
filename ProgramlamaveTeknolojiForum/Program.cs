@@ -37,7 +37,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Forum}/{action=AnaSayfa}");
+    pattern: "{controller=Forum}/{action=AnaSayfa}/{id?}");
 app.MapRazorPages();
 
 app.Run();

@@ -42,7 +42,7 @@ namespace kutuphane
                     var sql = @"
 			                    INSERT INTO Post
                                            (IdKullanici
-                                          ,IdAltKategori
+                                          ,IdKategori
                                           ,IdUstPost
                                           ,Baslik
                                           ,IP
@@ -51,7 +51,7 @@ namespace kutuphane
                                           ,Durum)
                                  VALUES          
                                            (@IdKullanici
-                                          ,@IdAltKategori
+                                          ,@IdKategori
                                           ,@IdUstPost
                                           ,@Baslik
                                           ,@IP
@@ -63,7 +63,7 @@ namespace kutuphane
                     , new
                     {
                         IdKullanici=kayit.IdKullanici,
-                        IdAltKategori=kayit.IdAltKategori,
+                        IdAltKategori=kayit.IdKategori,
                         IdUstPost=kayit.IdUstPost,
                         Baslik=kayit.Baslik,
                         IP=kayit.IP,
@@ -102,7 +102,7 @@ namespace kutuphane
                    , new
                    {
                        IdKullanici = kayit.IdKullanici,
-                       IdAltKategori = kayit.IdAltKategori,
+                       IdKategori = kayit.IdKategori,
                        IdUstPost = kayit.IdUstPost,
                        Baslik = kayit.Baslik,
                        IP = kayit.IP,
