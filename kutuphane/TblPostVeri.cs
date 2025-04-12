@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,10 @@ namespace kutuphane
             {
                 Baglanti b = new Baglanti();
 
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"SELECT * FROM Kullanici k WHERE Id=@Id";
-                    List<TblPost> gelenData = b.connection.Query<TblPost>(sql, new { Id = Id }).ToList();
+                    List<TblPost> gelenData = con.Query<TblPost>(sql, new { Id = Id }).ToList();
                     return gelenData[0];
                 }
             }
@@ -35,39 +36,43 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"
 			                    INSERT INTO Post
                                            (IdKullanici
-                                          ,IdAltKategori
+                                          ,IdKategori
                                           ,IdUstPost
                                           ,Baslik
                                           ,IP
+                                          ,Icerik
                                           ,KayitTarihi
                                           ,GoruntulenmeSayi
                                           ,Durum)
                                  VALUES          
                                            (@IdKullanici
-                                          ,@IdAltKategori
+                                          ,@IdKategori
                                           ,@IdUstPost
                                           ,@Baslik
                                           ,@IP
+                                           ,@Icerik
                                           ,@KayitTarihi
                                           ,@GoruntulenmeSayi
                                           ,@Durum)
                                       ;SELECT CAST(SCOPE_IDENTITY() as int)";
-                    Id = b.connection.Query<int>(sql
+                    Id = con.Query<int>(sql
                     , new
                     {
                         IdKullanici=kayit.IdKullanici,
-                        IdAltKategori=kayit.IdAltKategori,
+                        IdKategori=kayit.IdKategori,
                         IdUstPost=kayit.IdUstPost,
                         Baslik=kayit.Baslik,
                         IP=kayit.IP,
                         KayitTarihi = kayit.KayitTarihi,
                         GoruntulenmeSayi = kayit.GoruntulenmeSayi,
-                        Durum = kayit.Durum
+                        Durum = kayit.Durum,
+                        Icerik=kayit.Icerik
                     }).FirstOrDefault();
                     eklenen.Id = Id ?? 0;
                 }
@@ -84,7 +89,7 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"UPDATE Post
    SET IdKullanici = @IdKullanici
@@ -96,17 +101,17 @@ namespace kutuphane
       ,GoruntulenmeSayi = @GoruntulenmeSayi
       ,Durum = @Durum
  WHERE Id=@Id";
-                    b.connection.Execute(sql
+                   con.Execute(sql
                    , new
                    {
-                       IdKullanici=kayit.IdKullanici,
-                       IdAltKategori=kayit.IdAltKategori,
-                       IdUstPost=kayit.IdUstPost,
-                       Baslik=kayit.Baslik,
-                       IP=kayit.IP,
-                       KayitTarihi=DateTime.Now,
-                       GoruntulenmeSayi=kayit.GoruntulenmeSayi,
-                       Durum=kayit.Durum
+                       IdKullanici = kayit.IdKullanici,
+                       IdKategori = kayit.IdKategori,
+                       IdUstPost = kayit.IdUstPost,
+                       Baslik = kayit.Baslik,
+                       IP = kayit.IP,
+                       KayitTarihi = DateTime.Now,
+                       GoruntulenmeSayi = kayit.GoruntulenmeSayi,
+                       Durum = kayit.Durum
                    });
                     sonuc = "Başarılı";
                 }
@@ -124,13 +129,13 @@ namespace kutuphane
             try
             {
                 Baglanti b = new Baglanti();
-                using (b.connection)
+                using (SqlConnection con = b.BaglantiGetir())
                 {
                     var sql = @"
 			                    UPDATE Post
                                 SET Durum=@Durum
                                 WHERE Id=@Id";
-                    b.connection.Execute(sql
+                    con.Execute(sql
                    , new
                    {
                        Id = Id,
@@ -148,6 +153,133 @@ namespace kutuphane
             }
 
             return sonuc;
+        }
+
+        public List<VMPost> AnaSayfaVeriGetir()
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlConnection con = b.BaglantiGetir();
+                List<VMPost> veri = new List<VMPost>();
+                using (con)
+                {
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+, K.Id AS KonuId, ka.Baslik KategoriBaslik
+,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
+FROM Konu k 
+INNER JOIN Kategori ka on k.Id=ka.IdKonu
+INNER JOIN Post p on p.IdKategori=ka.Id
+INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
+WHERE ka.Durum=1 and p.Durum=1
+and p.IdUstPost=0
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
+                    return veri;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<VMPost> SorularSayfaVeriGetir()
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlConnection con = b.BaglantiGetir();
+                List<VMPost> veri = new List<VMPost>();
+                using (con)
+                {
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+, K.Id AS KonuId, ka.Baslik KategoriBaslik
+,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
+
+FROM Konu k 
+INNER JOIN Kategori ka on k.Id=ka.IdKonu
+INNER JOIN Post p on p.IdKategori=ka.Id
+INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
+
+WHERE ka.IdKonu=1 and ka.Durum=1 and p.Durum=1
+and p.IdUstPost=0
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
+                    return veri;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<VMPost> KonularSayfaVeriGetir()
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlConnection con = b.BaglantiGetir();
+                List<VMPost> veri = new List<VMPost>();
+                using (con)
+                {
+                    var sql = @"with bilgi as(
+SELECT Top 10 ku.Id KullaniciId,ku.TakmaAd,ku.Resim,ku.KayitTarihi KullaniciKayitTarihi,ku.Tip as KullaniciTip
+, K.Id AS KonuId, ka.Baslik KategoriBaslik
+,ka.Id KategoriId,p.Id PostId ,p.Baslik PostBaslik,p.GoruntulenmeSayi,p.KayitTarihi PostKayitTarihi
+,1 PostTip,p.IdUstPost,p.Icerik,u.Id IdUstKategori,u.Adi UstKategoriAdi
+
+FROM Konu k 
+INNER JOIN Kategori ka on k.Id=ka.IdKonu
+INNER JOIN Post p on p.IdKategori=ka.Id
+INNER JOIN Kullanici ku ON ku.Id=p.IdKullanici
+INNER JOIN UstKategori u on u.IdKonu=k.Id and u.Id=ka.IdUstKategori
+
+WHERE ka.IdKonu=2 and ka.Durum=1 and p.Durum=1
+and p.IdUstPost=0
+order by p.GoruntulenmeSayi desc
+)
+
+select b1.*,isnull(  t.yorumSayi,0) YorumSayi  from bilgi b1 left join ( 
+select p.Id, count(p.Id) as YorumSayi from bilgi b 
+Inner join Post p on b.IdUstPost=p.Id
+group by p.Id ) as t
+on b1.PostId=t.Id
+order by b1.GoruntulenmeSayi desc
+";
+                    veri = con.Query<VMPost>(sql).ToList();
+                    return veri;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

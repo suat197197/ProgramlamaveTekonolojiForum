@@ -91,7 +91,7 @@ margin-left: 0px;
     margin-left: 68%;
     border: 0px solid white;
     height: 1100px;
-    margin-top: -62.5%;
+    margin-top: -10%;
     margin-right: 22%;
     text-align: left;
    
@@ -123,22 +123,22 @@ margin-left: 0px;
        
 
         /* Pop-up İçeriği */
-        .popup-content {
-            background: white;
-            width: 500px;
-            padding: 35px;
-            height: 750px;
-            border-radius: 10px;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            background-color:rgb(20,25,31);
-            
-
-        }
+.popup-content {
+    background: white;
+    width: 500px;
+    padding: 35px;
+    height: 750px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgb(20,25,31);
+    overflow: scroll;
+    overflow-x: hidden;
+}
         .popup-content button{
             height: 30px;
             width: 100%;

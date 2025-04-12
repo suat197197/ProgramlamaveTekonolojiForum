@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramlamaveTeknolojiForum", "ProgramlamaveTeknolojiForum.csproj", "{F27278CB-EB68-42C5-A488-097D0566C66D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B1054404-D94D-40F0-979D-206705332448} = {B1054404-D94D-40F0-979D-206705332448}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kutuphane", "..\kutuphane\kutuphane.csproj", "{B1054404-D94D-40F0-979D-206705332448}"
 EndProject
