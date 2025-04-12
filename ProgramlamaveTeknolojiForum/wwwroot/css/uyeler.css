@@ -32,9 +32,8 @@ body{
     
     
    margin-top: -2%;
-    
-    
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -50,6 +49,8 @@ body{
 text-align: left;
 margin-top: -20%;
 margin-left:30%;
+margin-right:30%;
+
 }
 .navbar button{
     float: right;
@@ -83,6 +84,7 @@ margin-left:30%;
     margin-left: -15%;
 
 }
+
 
 .modal-content input ::after{
     color: blueviolet;
@@ -121,7 +123,7 @@ button {
 .ustbolme{
     text-align: center;
     
-    width: 110%;
+    width: 100%;
     height: 50px;
     border: 1px solid rgb(99, 98, 98);   
     border-radius: 10px;
@@ -155,219 +157,23 @@ border-left: 3px solid rgb(225, 229, 235);
 }
 
 .ustbolme :hover{
-    
+
   border: 0px;
    background-color:rgb(20,25,31);
 }
 
 
-.baslık{
-    margin-top:5%;
-    height: 180px;
-    border-bottom: 0px solid rgb(99, 98, 98);  
-    border-top: 1px solid rgb(99, 98, 98);  
-      width: 60%;
-    margin-left: 15%;
-    background-image: linear-gradient( rgb(20,25,31),rgb(13, 20, 27)) ;
-    border-radius: 20px;
-
-}
 
 
 
-.cevaplar{
-    border: 0px solid white;
-    width: 60%;
-    height: 1000px;
-    margin-left: 15%;
-    margin-top: 4%;
-}
 
-.forum-container {
-    width: 100%;
-    margin: auto;
-    
-    
-}
-.post {
-    color: whitesmoke;
-    display: flex;
-    
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(99, 98, 98);
-}
-.user-info {
-    
-    background-image: linear-gradient( rgb(20,25,31),rgb(13, 20, 27)) ;
-
-    width: 14%;
-    padding: 15px;
-    height: 200px;
-    text-align: center;
-    padding-right: 30px;
-    border-right: 1px solid rgb(99, 98, 98);
-    margin-left: -1%;
-    margin-top: -1%;
-    margin-bottom: -1%;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius:10px ;
-    
-
-}
-.user-info img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.user-info a{
-    font-weight: bold;
-    font-size: 0.9em;
-    color: gray;
-}
-
-.post-content {
-    width: 80%;
-}
-.post-content p  {
-    margin: 5px 0;
-    margin-left: 2%;
-}
-.post-content button{
-    float: right;
-    margin-top: 15%;
-    background-color: rgb(38, 48, 68);
-    color: white;
-    margin-right: -1%;
-    display: inline;
-}
-.username {
-    font-weight: bold;
-}
-.date {
-    font-size: 0.9em;
-    color: gray;
-}
-.reply-box {
-    background-color:rgb(20,25,31);
-    padding: 15px;
-    margin-top: 25px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(99, 98, 98);
-    height: 220px;
-
-
-}
-.reply-box textarea {
-    width: 75%;
-    height: 150px;
-    padding: 10px;
-    background-color:rgb(20,25,31);
-float: right;
-border: 1px solid rgb(99, 98, 98);
-border-radius: 5px;
-    resize: none;
-    color: whitesmoke;
-    margin-left: 10%;
-    margin-top: -25%;
-}
-.reply-box button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    border: none;
-    background: #0a9c36;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right;
-}
-.reply-box button:hover {
-    background: #044919;
-}
-
-.user-info1 {
-    
-    background-image: linear-gradient(rgb(20,25,31), rgb(10, 26, 44));
-
-    width: 14%;
-    padding: 15px;
-    height: 200px;
-    text-align: center;
-    float: left;
-    padding-right: 30px;
-    border-right: 1px solid rgb(99, 98, 98);
-    margin-left: -1%;
-    margin-top: -1%;
-    margin-bottom: -1%;
-    border-top-right-radius:10px ;
-    border-bottom-right-radius:10px ;
-    
-
-}
-.user-info1 img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.user-info1 a{
-    font-weight: bold;
-    font-size: 0.9em;
-    color: gray;
-}
-
-.vote-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50px;
-    font-family: Arial, sans-serif;
-    margin-left: -6%;
-    margin-right: 1%;
-  }
-
-  .vote-button {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #1e56bd;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    background-color: rgba(1, 65, 95, 0.062);
-  }
-
-  .vote-button:hover {
-    background-color: #1e56bd;
-  }
-
-  .vote-button.disabled {
-    pointer-events: none;
-    opacity: 0.4;
-  }
-
-  .vote-count {
-    font-size: 20px;
-    margin: 8px 0;
-    font-weight: bold;
-  }
-
-  
 .footer {
     background-color:rgb(23, 34, 48);  
     border-top: 1px solid rgb(99, 98, 98);
     color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 100%;
+    margin-top: 25%;
 }
 
 .footer-content {
