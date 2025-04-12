@@ -32,7 +32,7 @@ ka.Durum=1
  ),bilgi2 as (
  select top  10  count(*) as sayi,p.IdKategori from Post p
  group by p.IdKategori
- order by count(*)
+ order by count(*) desc
  ) select b.* from bilgi b
  Inner join bilgi2 b2  on b2.IdKategori=b.IdKategori
 ";

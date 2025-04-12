@@ -138,17 +138,21 @@
          
       <div class="sagtaraf">
         <div>
-            <button onclick="openPopup()" type="submit"  href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
-            <div class="popup" id="sepopup">
+            <button onclick="openPopupkonu()" type="submit"  href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
+            <div class="popup" id="popupkonu">
                 <div class="popup-content">
                     <div class="konuacbaslık">
                         <br>
                         <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
                     </div>
                     <br>
-                    @foreach (var item in Model.SoruKategori)
+                    @foreach (var item in Model.KonuKategori)
                     {
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@(item.KategoriAdi)</a></button>
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>
+                            @* <a href="konuacma.html">@(item.KategoriAdi) *@
+                               <a asp-action="KonuAc" asp-route-id="@item.IdKategori">@(item.KategoriAdi)</a>
+
+                            </button>
                         <br>
                     }
 
@@ -157,12 +161,12 @@
 
             <script>
 
-                function openPopup1() {
-                document.getElementById("sepopup").style.display = "block";
+                function openPopupkonu() {
+                document.getElementById("popupkonu").style.display = "block";
                 }
 
-                function closePopup1() {
-                document.getElementById("sepopup").style.display = "none";
+                function closePopupkonu() {
+                document.getElementById("popupkonu").style.display = "none";
                 }
 
 
@@ -171,16 +175,19 @@
 
 
 
-            <button onclick="openPopup1()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
-            <div class="popup" id="sepopup1" >
+            <button onclick="openPopupsoru()" type="submit"  href="" class=" btn-2"><b>Soru-Cevap</b> </button>
+            <div class="popup" id="popupsoru" >
                 <div class="popup-content">
                     <div class="konuacbaslık">
                         <br>
-                        <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Konu Aç</h2>
+                        <h2><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>  Soru Sor</h2>
                     </div>
                     <br>
-                    @foreach (var item in Model.KonuKategori) {
-                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i> <a href="konuacma.html">@item.KategoriAdi</a></button>
+                    @foreach (var item in Model.SoruKategori) {
+                        <button> <i class="fa-solid fa-code" style="color: #63E6BE;"></i>
+                               <a asp-action="KonuAc" asp-route-id="@item.IdKategori">@(item.KategoriAdi)</a>
+                            
+                        </button>
                         <br>
                     }
 
@@ -189,25 +196,25 @@
 
             <script>
 
-                function openPopup() {
-                document.getElementById("sepopup1").style.display = "block";
+                function openPopupsoru() {
+                document.getElementById("popupsoru").style.display = "block";
                 }
 
-                function closePopup() {
-                document.getElementById("sepopup1").style.display = "none";
+                function closePopupsoru() {
+                document.getElementById("popupsoru").style.display = "none";
                 }
 
 
                 // Kullanıcı pop-up dışına tıklarsa kapansın
                 window.onclick = function(event) {
-                  let popup = document.getElementById("sepopup");
+                  let popup = document.getElementById("popupkonu");
                 if (event.target == popup) {
                 popup.style.display = "none";
                 }
 
 
 
-                let popup1 = document.getElementById("sepopup1");
+                let popup1 = document.getElementById("popupsoru");
                 if (event.target == popup1) {
                 popup1.style.display = "none";
                 }

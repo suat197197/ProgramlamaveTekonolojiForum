@@ -32,7 +32,7 @@ namespace ProgramlamaveTeknolojiForum.Controllers
         }
         public IActionResult Konu()
         {
-            KonuModel m = new KonuModel();
+            KonuSayfaModel m = new KonuSayfaModel();
             TblPostVeri veri = new TblPostVeri();
             m.Konular = veri.KonularSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
@@ -42,20 +42,27 @@ namespace ProgramlamaveTeknolojiForum.Controllers
         [HttpGet]
         public IActionResult KonuAc(int id)
         {
-            KonuAcSayfaModel m = new KonuAcSayfaModel();
-             m.IdKategori = id;
+            ViewBag.IdKategori = id;
            
             
-            return View(m);
+            return View();
         }
         [HttpPost]
-        public IActionResult KonuAc(KonuAcSayfaModel model)
+        public IActionResult KonuAc(KonuAcSayfaModel model,int IdKategori)
         {
             TblPostVeri veri = new TblPostVeri();
             TblPost post = new TblPost();
+            post.IP = "1";
+            post.Durum = 1;
+            post.Tip = 1;
+            post.GoruntulenmeSayi = 0;
+            post.IdKategori = IdKategori;
+            post.IdKullanici = 3;
+            post.IdUstPost = 0;
             post.Baslik = model.Baslik;
             post.Icerik = model.Icerik;
             post.IdKategori = model.IdKategori;
+            post.KayitTarihi = DateTime.Now;
             veri.TblPostKayitEkle(post);
        
             return View();

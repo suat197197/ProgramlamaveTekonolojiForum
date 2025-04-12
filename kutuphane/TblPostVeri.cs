@@ -46,6 +46,7 @@ namespace kutuphane
                                           ,IdUstPost
                                           ,Baslik
                                           ,IP
+                                          ,Icerik
                                           ,KayitTarihi
                                           ,GoruntulenmeSayi
                                           ,Durum)
@@ -55,6 +56,7 @@ namespace kutuphane
                                           ,@IdUstPost
                                           ,@Baslik
                                           ,@IP
+                                           ,@Icerik
                                           ,@KayitTarihi
                                           ,@GoruntulenmeSayi
                                           ,@Durum)
@@ -63,13 +65,14 @@ namespace kutuphane
                     , new
                     {
                         IdKullanici=kayit.IdKullanici,
-                        IdAltKategori=kayit.IdKategori,
+                        IdKategori=kayit.IdKategori,
                         IdUstPost=kayit.IdUstPost,
                         Baslik=kayit.Baslik,
                         IP=kayit.IP,
                         KayitTarihi = kayit.KayitTarihi,
                         GoruntulenmeSayi = kayit.GoruntulenmeSayi,
-                        Durum = kayit.Durum
+                        Durum = kayit.Durum,
+                        Icerik=kayit.Icerik
                     }).FirstOrDefault();
                     eklenen.Id = Id ?? 0;
                 }
