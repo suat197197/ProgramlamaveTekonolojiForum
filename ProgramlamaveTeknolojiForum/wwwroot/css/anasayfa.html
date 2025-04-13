@@ -19,7 +19,7 @@
        
 
      <button  style="margin-right: 25%; " onclick="openModal('loginModal')">Giriş Yap</button>
-       <button onclick="openModal('registerModal')">Kayıt Ol</button>
+       <a href="uyeolma.html"><button> Kayıt Ol</button></a>
 
       
    
@@ -40,21 +40,7 @@
            </div>
        </div>
    
-       <div id="registerModal" class="modal">
-           <div class="modal-content">
-               <span class="close" onclick="closeModal('registerModal')">&times;</span>
-               <h2>Kayıt Ol</h2>
-               <br><br><br><br><br><br><br><br>
-               <input type="text" placeholder="Kullanıcı Adı"><br><br>
-               <input type="email" placeholder="E-posta"><br><br>
-               <input type="password" placeholder="Şifre"><br><br>
-               <button>Kayıt Ol</button>
-               <div class="google-login">
-                   <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
-                   
-               </div>
-           </div>
-       </div>
+       
    
        <script>
            function openModal(id) {
@@ -85,13 +71,12 @@
 
 
             <div class="ustbolme">
-                <button href style="margin-left: 22%;"> <a href="anasayfa.html"> <i class="fa-solid fa-house fd-md" style="color: #ffffff;"></i>Ana sayfa</a></button>
-                <button> <a href="sorucevapsayfa.html"> <i class="fa-solid fa-question" style="color: #ffffff;"></i>Soru-Cevap</a></button>
-                <button><a href="konusayfa.html"><i class="fa-solid fa-comments" style="color: #f5f5f5;"></i>Konular</a></button>
-                <button><a href=""><i class="fa-regular fa-calendar-days" style="color: #f2f2f2;"></i>Neler Yeni</a></button>
-                <button><a href="uyeler.html"> <i class="fa-solid fa-user" style="color: #e6e7ea;"></i>Üyeler</a></button>
-                <button><a href="kurallar.html">  <i class="fa-solid fa-scale-balanced fa-md" style="color: #f5f5f5;"></i>Kurallar</a></button>
-
+                <a  style="margin-left: 22%;" href="anasayfa.html"> <button>  <i class="fa-solid fa-house fd-md" style="color: #ffffff;"></i>Ana sayfa</button></a>
+                <a href="sorucevapsayfa.html"> <button><i class="fa-solid fa-question" style="color: #ffffff;"></i>Soru-Cevap</button></a>
+                <a href="konusayfa.html"> <button><i class="fa-solid fa-comments" style="color: #f5f5f5;"></i>Konular</button></a>
+                <a href="sohbet.html">  <button><i class="fa-regular fa-calendar-days" style="color: #f2f2f2;"></i>Sohbet</button></a>
+                <a href="uyeler.html"> <button><i class="fa-solid fa-user" style="color: #e6e7ea;"></i>Üyeler</button></a>
+               <a href="kurallar.html"> <button> <i class="fa-solid fa-scale-balanced fa-md" style="color: #f5f5f5;"></i>Kurallar</button></a>
 
 
             </div>

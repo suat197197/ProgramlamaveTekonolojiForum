@@ -245,6 +245,15 @@ border-left: 3px solid rgb(225, 229, 235);
     margin-right: -1%;
     display: inline;
 }
+.post-content label  {
+    background-color: #152761;
+    float: right;
+    margin-top: -5% ;
+    border-radius: 20px;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+}
 .username {
     font-weight: bold;
 }

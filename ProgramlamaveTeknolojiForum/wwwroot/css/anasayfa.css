@@ -79,6 +79,10 @@ margin-left: 0px;
     margin-left: 8%;
 }
 
+.ustbolme a{
+    margin-left: 0%;
+}
+
 
 .sagtaraf{
     margin-left: 68%;
@@ -244,6 +248,7 @@ margin-right:30%;
     border-radius: 10px;
     text-align: left;
     color: black;
+    box-shadow: 0 10px 1px rgb(46, 56, 116);
 }
 .modal-content input{
     width: 130%;

@@ -337,6 +337,7 @@ border-left: 3px solid rgb(225, 229, 235);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: small;
+    margin-left: 0%;
 }
 
 .ustbolme :hover{
