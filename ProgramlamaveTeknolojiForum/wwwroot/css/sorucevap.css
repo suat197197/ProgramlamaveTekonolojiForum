@@ -237,6 +237,15 @@ border-left: 3px solid rgb(225, 229, 235);
     margin: 5px 0;
     margin-left: 2%;
 }
+.post-content label  {
+    background-color: #152761;
+    float: right;
+    margin-top: -5% ;
+    border-radius: 20px;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+}
 .post-content button{
     float: right;
     margin-top: 15%;
