@@ -149,6 +149,32 @@ namespace kutuphane
             
             return sonuc;
         }
-
+      
+        public KullaniciYetki KullaniciGiris(string KullaniciAdi,string Sifre)
+        {
+            try
+            {
+                Baglanti b = new Baglanti();
+                using (SqlConnection con = b.BaglantiGetir())
+                {
+                    var sql = @"select k.Id IdKullanici, k.Tip KullaniciTip from Kullanici k
+where (k.Eposta=@KullaniciAdi or k.TakmaAd=@KullaniciAdi)
+and k.Sifre=@Sifre";
+                    List<KullaniciYetki> gelenData = con.Query<KullaniciYetki>(sql, new { KullaniciAdi = KullaniciAdi,Sifre=Sifre }).ToList();
+                    if (gelenData.Count()==0)
+                    {
+                        return new KullaniciYetki { IdKullanici = 0, KullaniciTip = 0 };
+                    }
+                    else
+                    {
+                        return gelenData[0];
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
