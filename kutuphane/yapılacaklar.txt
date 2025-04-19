@@ -5,7 +5,11 @@ Neler Yeni
 Üyeler
 Quill genişlet
 Kullanıcı resim göster
-Üye sayfası
 Resim ekleme
 Soru ekle sayfası
-
+profil sayfası
+forumda ara
+yeni konu aç üye değilse kayıt ola yönlendirilecek
+soru sor üye değilse kayıt ola yönlendirecel
+giriş sayfasına şifremi unuttum yapılacak
+şifre değiştir yapılacak

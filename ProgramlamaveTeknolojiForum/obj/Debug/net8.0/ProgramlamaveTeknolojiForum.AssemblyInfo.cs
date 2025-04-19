@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProgramlamaveTeknolojiForum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6a7e3d3502eabfabcf3d3200be6389886bdbb0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e93d6bb706b92961e41911c0bca1e94badc53fbc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProgramlamaveTeknolojiForum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProgramlamaveTeknolojiForum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
