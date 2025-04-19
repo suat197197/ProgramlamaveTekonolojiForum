@@ -9,25 +9,8 @@ namespace ProgramlamaveTeknolojiForum.Models
         public List<VMPost> Konular = new List<VMPost>();
         
         public List<TblKategori> KonuKategori = new List<TblKategori>();
-        public List<TblPostlar> Postlar = new List<TblPostlar>();
-
-        public int KulaniciId { get; set; }
-        public byte?[] Resim { get; set; }
-        public string TakmaAd { get; set; }
-        public DateTime KullaniciKayitTarihi { get; set; }
-        public int KullaniciTip { get; set; }
-        public int KonuId { get; set; }
-        public string KategoriBaslik { get; set; }
-        public int KategoriId { get; set; }
-        public int PostId { get; set; }
-        public string PostBaslik { get; set; }
-        public int GoruntulenmeSayi { get; set; }
-        public DateTime PostKayitTarihi { get; set; }
-        public int PostTip { get; set; }
-        public int IdUstPost { get; set; }
+        public TblPostlar AnaPost = new TblPostlar();
+        public List<TblPostlar> DigerPostlar = new List<TblPostlar>();
         public string Icerik { get; set; }
-        public int YorumSayi { get; set; }
-        public int IdUstKategori { get; set; }
-        public string UstKategoriAdi { get; set; }
     }
 }

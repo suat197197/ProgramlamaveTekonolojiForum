@@ -20,9 +20,9 @@ namespace kutuphane
         public int Durum { get; set; }
         public string Icerik { get; set; }
         public string TakmaAd { get; set; }
-
         public int MesajSayi { get; set; }
         public int BegenmeSayi { get; set; }
+        public DateTime KullaniciKayitTarihi { get; set; }
 
 
     }

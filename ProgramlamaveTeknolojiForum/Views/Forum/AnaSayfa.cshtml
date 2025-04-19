@@ -27,7 +27,7 @@
                 <input type="text" id="KullaniciAdi" placeholder="Kullanıcı Adı veya E-posta"><br><br>
                 <input type="password" id="Sifre" placeholder="Şifre"><br><br>
                 <button id="btnGiris">Giriş Yap</button>
-                <p id="mesaj" style="display:none">Kullanıcı adı yada şifre uyuşmuyor</p>
+                <p id="mesaj"></p>
                 @* <div class="google-login">
                     <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
                 </div> *@
@@ -50,9 +50,7 @@
         </div>
 
         <script>
-            window.onload=function(){
-
-            }
+            
              $("#btnGiris").click(function(){
                $.ajax({
 
@@ -68,7 +66,7 @@
                 success : function(dataGelen) {
                     if (dataGelen["KullaniciTip"]=="0")
                     {
-                        document.getElementById("mesaj").style.display = 'block';
+                        document.getElementById("mesaj").innerHTML="Kullanıcı Adı veya Şifre uyuşmuyor."
                     }
                     else
                     {
