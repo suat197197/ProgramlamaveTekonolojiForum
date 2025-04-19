@@ -138,8 +138,6 @@ namespace ProgramlamaveTeknolojiForum.Controllers
         public IActionResult KonuAc(int id)
         {
             ViewBag.IdKategori = id;
-
-
             return View();
         }
         [HttpPost]
@@ -165,7 +163,6 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             return View();
         }
         [HttpPost]
-
         public JsonResult KullaniciGiris(string KullaniciAdi,string Sifre)
         {
             TblKullaniciVeri kveri = new TblKullaniciVeri();
@@ -175,6 +172,5 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             
             return Json(yetki);
         }
-
     }
 }
