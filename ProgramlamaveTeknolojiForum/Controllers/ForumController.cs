@@ -1,20 +1,84 @@
 ﻿using kutuphane;
 using Microsoft.AspNetCore.Mvc;
 using ProgramlamaveTeknolojiForum.Models;
-
+using System.Globalization;
+using System.Text.Json;
 namespace ProgramlamaveTeknolojiForum.Controllers
 {
     public class ForumController : Controller
     {
+        public void Cookiesil()
+        {
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
+        }
+        public void Sessionsil()
+        {
+            HttpContext.Session.Clear();
+        }
+        public KullaniciYetki KullaniciYetkiGetir()
+        {
+            KullaniciYetki y = new KullaniciYetki();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("IdKullanici")) == true
+                || string.IsNullOrEmpty(HttpContext.Session.GetString("IdKullanici")) == true)
+            {
+                if (Request.Cookies["IdKullanici"] == null || Request.Cookies["KullaniciTip"] == null)
+                {
+                    y.IdKullanici = 0;
+                    y.KullaniciTip = 0;
+                }
+                else
+                {
+                    y.IdKullanici = int.Parse(Request.Cookies["IdKullanici"].ToString());
+                    y.KullaniciTip = int.Parse(Request.Cookies["KullaniciTip"].ToString());
+                }
+
+
+
+           }
+            else
+            {
+                y.IdKullanici = int.Parse(HttpContext.Session.GetString("IdKullanici").ToString());
+                y.KullaniciTip = int.Parse(HttpContext.Session.GetString("KullaniciTip").ToString());
+
+
+            }
+
+
+            return y;
+        }
+        public void KullaniciYetkiEkle(KullaniciYetki yetki)
+        {
+            CookieOptions options = new CookieOptions
+            {
+                Domain = "example.com", // Set the domain for the cookie
+                Expires = DateTime.Now.AddDays(7), // Set expiration date to 7 days from now
+                Path = "/", // Cookie is available within the entire application
+                Secure = true, // Ensure the cookie is only sent over HTTPS
+                HttpOnly = true, // Prevent client-side scripts from accessing the cookie
+                MaxAge = TimeSpan.FromDays(7), // Another way to set the expiration time
+                IsEssential = true // Indicates the cookie is essential for the application to function
+            };
+            Response.Cookies.Append("IdKullanici", yetki.IdKullanici.ToString(), options);
+            Response.Cookies.Append("KullaniciTip", yetki.KullaniciTip.ToString(), options);
+
+            HttpContext.Session.SetString("IdKullanici", yetki.IdKullanici.ToString());
+            HttpContext.Session.SetString("KullaniciTip",yetki.KullaniciTip.ToString());
+    
+        }
         public IActionResult AnaSayfa()
         {
+            
             AnaSayfaModel m = new AnaSayfaModel();
+            m.yetki = KullaniciYetkiGetir();
             TblPostVeri veri = new TblPostVeri();
-            m.KonularSorular= veri.AnaSayfaVeriGetir();
+            m.KonularSorular = veri.AnaSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.KonuSoruKategori = verik.TumKategoriVeriGetir();
             m.SoruKategori = verik.SoruKategoriVeriGetir();
-            m.KonuKategori=verik.KonuKategoriVeriGetir();
+            m.KonuKategori = verik.KonuKategoriVeriGetir();
             return View(m);
         }
         public IActionResult SoruCevap()
@@ -30,25 +94,30 @@ namespace ProgramlamaveTeknolojiForum.Controllers
 
             return View(m);
         }
-        public IActionResult Konu()
+        public IActionResult Konu(int id)
         {
             KonuSayfaModel m = new KonuSayfaModel();
             TblPostVeri veri = new TblPostVeri();
             m.Konular = veri.KonularSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.KonuKategori = verik.KonuKategoriVeriGetir();
+            m.Postlar = veri.TblTumPostKayitGetir_Id(id);
+
+
+
+
             return View(m);
         }
         [HttpGet]
         public IActionResult KonuAc(int id)
         {
             ViewBag.IdKategori = id;
-           
-            
+
+
             return View();
         }
         [HttpPost]
-        public IActionResult KonuAc(KonuAcSayfaModel model,int IdKategori)
+        public IActionResult KonuAc(KonuAcSayfaModel model, int IdKategori)
         {
             TblPostVeri veri = new TblPostVeri();
             TblPost post = new TblPost();
@@ -57,6 +126,7 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             post.Tip = 1;
             post.GoruntulenmeSayi = 0;
             post.IdKategori = IdKategori;
+            ///Session dan gelecek
             post.IdKullanici = 3;
             post.IdUstPost = 0;
             post.Baslik = model.Baslik;
@@ -64,8 +134,19 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             post.IdKategori = model.IdKategori;
             post.KayitTarihi = DateTime.Now;
             veri.TblPostKayitEkle(post);
-       
+
             return View();
+        }
+        [HttpPost]
+
+        public JsonResult KullaniciGiris(string KullaniciAdi,string Sifre)
+        {
+            TblKullaniciVeri kveri = new TblKullaniciVeri();
+            KullaniciYetki yetki = new KullaniciYetki();
+            yetki=kveri.KullaniciGiris(KullaniciAdi, Sifre);
+            KullaniciYetkiEkle(yetki);
+            
+            return Json(yetki);
         }
 
     }

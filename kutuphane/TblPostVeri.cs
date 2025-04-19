@@ -10,7 +10,7 @@ namespace kutuphane
 {
     public class TblPostVeri
     {
-        public TblPost TblPostKayitGetir_Id(int Id)
+        public List<TblPostlar> TblTumPostKayitGetir_Id(int PostId)
         {
             try
             {
@@ -18,9 +18,31 @@ namespace kutuphane
 
                 using (SqlConnection con = b.BaglantiGetir())
                 {
-                    var sql = @"SELECT * FROM Kullanici k WHERE Id=@Id";
-                    List<TblPost> gelenData = con.Query<TblPost>(sql, new { Id = Id }).ToList();
-                    return gelenData[0];
+                    var sql = @"select t.*,k.Id KullaniciId,k.TakmaAd ,k.Resim,t1.MesajSayi,t2.BegenmeSayi from 
+(select * from Post p
+where p.Id=@PostId
+and p.IdUstPost=0 and p.Durum=1
+union 
+select * from Post p
+where p.IdUstPost=@PostId 
+and p.Durum=1
+) as t 
+Inner join Kullanici k on k.Id=t.IdKullanici
+Inner join (
+select p.IdKullanici,count(p.Id) as MesajSayi from
+Post p 
+group by p.IdKullanici
+) as t1 on t1.IdKullanici=t.IdKullanici
+Inner join (
+select p.IdKullanici,sum(p.BegenmeSayi) as BegenmeSayi from
+Post p 
+group by p.IdKullanici
+
+)  as t2 on t2.IdKullanici=t.IdKullanici
+
+order by t.KayitTarihi asc";
+                    List<TblPostlar> gelenData = con.Query<TblPostlar>(sql, new { PostId = PostId }).ToList();
+                    return gelenData;
                 }
             }
             catch (Exception)
