@@ -59,8 +59,8 @@ body{
     height: 14vh;
     list-style-type:none;
 margin-left: 0px;    
-border-left: 0.5px solid whitesmoke;
-border-right: 0.5px solid whitesmoke;
+border-left: 0.5px solid rgb(31, 75, 196);
+border-right: 0.5px solid rgb(31, 75, 196);
 
 border-radius: 20px;
 display: block;
@@ -68,8 +68,9 @@ margin-top: 2%;
 }
 
 .konu ul :hover{
-    background-color: #091e35;
-    border: 0px;
+    background-color: #061524;
+    border-color: #013d7c;
+    border-width: 10px;
 }
 
 .konu h1{
