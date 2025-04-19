@@ -26,16 +26,13 @@ body{
     margin-left: 20%;
     
 }
-.navbar a b{
-    float: right;
-    margin-right: 20%;
-    
-    
-   margin-top: -2%;
-    
-    
+.navbar a{    
+    margin-top: -2%;
 }
 
+.navbar button{
+   margin-right: 150%;
+}
 
 
 
@@ -49,20 +46,31 @@ body{
 .konu label{
     background-color: #2bb0d8;
     float: right;
-    margin-top: -5% ;
+    margin-top: -3% ;
     border-radius: 20px;
     width: 90px;
     height: 18px;
     text-align: center;
+    margin-right: 1%;
     
 }
 .konu li{
     width: 100%;
-    height: 13vh;
+    height: 14vh;
     list-style-type:none;
 margin-left: 0px;    
+border-left: 0.5px solid whitesmoke;
+border-right: 0.5px solid whitesmoke;
+
+border-radius: 20px;
+display: block;
+margin-top: 2%;
 }
 
+.konu ul :hover{
+    background-color: #091e35;
+    border: 0px;
+}
 
 .konu h1{
     font-size: medium;
@@ -71,6 +79,13 @@ margin-left: 0px;
    margin-top:-5%;
     
 
+}
+
+.konu img{
+    margin-left: 1%;
+    border-radius: 50%; 
+    width: 5%; 
+    margin-top: 1% ;
 }
 
 .konu a{
@@ -336,8 +351,9 @@ border-left: 3px solid rgb(225, 229, 235);
 
 .ustbolme :hover{
 
-  border: 0px;
+    border-color: #007bff;
    background-color:rgb(20,25,31);
+
 }
 
 

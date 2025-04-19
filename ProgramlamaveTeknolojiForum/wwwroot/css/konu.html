@@ -16,52 +16,11 @@
        <img style=" margin-left: 20%; width: 13%;" src="img/aaaa-Photoroom.png" alt="">
 
 
+       <a  href="logın.html"><button style="margin-right: 10%;" > Giriş Yap</button></a>
+
+       <a  href="uyeolma.html"><button style="margin-right: 20%;"> Kayıt Ol</button></a>
+   
        
-
-       <button style="margin-right: 25%;" onclick="openModal('loginModal')">Giriş Yap</button>
-       <button onclick="openModal('registerModal')">Kayıt Ol</button>
-   
-       <div id="loginModal" class="modal">
-           <div class="modal-content">
-               
-                  <span class="close" onclick="closeModal('loginModal')">&times;</span>
-
-               <h2>Giriş Yap</h2>
-            <br><br><br><br><br><br><br><br>
-               <input type="text" placeholder="Kullanıcı Adı veya E-postra"><br><br>
-               <input type="password" placeholder="Şifre"><br><br>
-               <button>Giriş Yap</button>
-               <div class="google-login">
-                   <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
-                   
-               </div>
-           </div>
-       </div>
-   
-       <div id="registerModal" class="modal">
-           <div class="modal-content">
-               <span class="close" onclick="closeModal('registerModal')">&times;</span>
-               <h2>Kayıt Ol</h2>
-               <br><br><br><br><br><br><br><br>
-               <input type="text" placeholder="Kullanıcı Adı"><br><br>
-               <input type="email" placeholder="E-posta"><br><br>
-               <input type="password" placeholder="Şifre"><br><br>
-               <button>Kayıt Ol</button>
-               <div class="google-login">
-                   <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
-                   
-               </div>
-           </div>
-       </div>
-   
-       <script>
-           function openModal(id) {
-               document.getElementById(id).style.display = 'block';
-           }
-           function closeModal(id) {
-               document.getElementById(id).style.display = 'none';
-           }
-       </script>
     </nav>
 <!--Navbar-->
 <div>
@@ -93,7 +52,7 @@
 
 <div class="cevaplar">
     <div class="forum-container">
-    <div class="post">
+    <div style="border-color: rgb(0, 38, 255);" class="post">
         <div class="user-info">
             <img src="img/indir.png" alt="User Avatar">
             <div class="username"> Suat Özkaya</div>
@@ -101,16 +60,27 @@
             <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">2 Şubat 2025</a></div>
             <div class="mesaj"><a style="float:left;">Mesajlar: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">21.252</a></div>
             <div class="mesaj"><a style="float:left;">Beğeniler: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">2.252</a></div>
-
+            
         </div>
+
+
+         
+
         <div class="post-content">
             <label for="">Konu Sahibi</label>
             <p>AdSense'e 4-5 defa başvurdum fakat sürekli bu sebepten dolayı reddediliyorum. Sitemde politikaları ihlal edebilecek bir şey bence yok...</p>
             <button><i class="fa-solid fa-reply fa-sm" style="color: #ffffff;"></i>Cevapla</button>
-            <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
+            <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button>
+                     <!--Rapor et butonu-->
+            <div class="message" id="message-123">
+                <button style="margin-top: 15%;" class="report-button" onclick="reportMessage(123)">Rapor Et</button>
+              </div>
         </div>
+
     </div>
-    <br><br><br>
+    
+<br><br><br>
+
     <div class="post">
         <div class="user-info">
             <img  src="img/indir.png" alt="User Avatar">
@@ -126,7 +96,33 @@
             <p>Hakkımda, İletişim, Gizlilik, Kişisel Veri bilgisi sitede -özellikle ilk ve alt menülerden birinde yoksa- bu uyarı alınıyor...</p>
             <button><i class="fa-solid fa-reply fa-sm" style="color: #ffffff;"></i>Cevapla</button>
             <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
+             <!--Rapor et butonu-->
+             <div class="message" id="message-123">
+                <button  class="report-button" onclick="reportMessage(123)">Rapor Et</button>
+              </div>
 
+        </div>
+    </div>
+
+
+    <div class="post">
+        <div class="user-info">
+            <img src="img/indir.png" alt="User Avatar">
+            <div class="username"> Suat Özkaya</div>
+            <br>
+            <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">2 Şubat 2025</a></div>
+            <div class="mesaj"><a style="float:left;">Mesajlar: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">21.252</a></div>
+            <div class="mesaj"><a style="float:left;">Beğeniler: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">2.252</a></div>
+
+        </div>
+        <div class="post-content">
+            <p>Zorandor dedi: Hakkımda, iletişim, gizlilik, kişisel veri bilgisi sitede eksikse bu uyarı alınıyor...</p>
+            <button><i class="fa-solid fa-reply fa-sm" style="color: #ffffff;"></i>Cevapla</button>
+            <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
+             <!--Rapor et butonu-->
+             <div class="message" id="message-123">
+                <button  class="report-button" onclick="reportMessage(123)">Rapor Et</button>
+              </div>
         </div>
     </div>
     <div class="post">
@@ -143,22 +139,10 @@
             <p>Zorandor dedi: Hakkımda, iletişim, gizlilik, kişisel veri bilgisi sitede eksikse bu uyarı alınıyor...</p>
             <button><i class="fa-solid fa-reply fa-sm" style="color: #ffffff;"></i>Cevapla</button>
             <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
-        </div>
-    </div>
-    <div class="post">
-        <div class="user-info">
-            <img src="img/indir.png" alt="User Avatar">
-            <div class="username"> Suat Özkaya</div>
-            <br>
-            <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">2 Şubat 2025</a></div>
-            <div class="mesaj"><a style="float:left;">Mesajlar: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">21.252</a></div>
-            <div class="mesaj"><a style="float:left;">Beğeniler: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">2.252</a></div>
-
-        </div>
-        <div class="post-content">
-            <p>Zorandor dedi: Hakkımda, iletişim, gizlilik, kişisel veri bilgisi sitede eksikse bu uyarı alınıyor...</p>
-            <button><i class="fa-solid fa-reply fa-sm" style="color: #ffffff;"></i>Cevapla</button>
-            <button><i class="fa-solid fa-thumbs-up fa-sm" style="color: #ffffff;"></i>Beğen</button> 
+             <!--Rapor et butonu-->
+             <div class="message" id="message-123">
+                <button  class="report-button" onclick="reportMessage(123)">Rapor Et</button>
+              </div>
         </div>
     </div>
     <div class="post">
@@ -316,6 +300,16 @@
             document.getElementById('contact-popup').style.display = 'none';
         });
     </script>
+
+
+<!--Rapor et butonu-->
+<script>
+    function reportMessage(messageId) {
+      // Sunucuya istek atacak yer (örn: fetch veya AJAX)
+      alert("Mesaj #" + messageId + " rapor edildi.");
+      // fetch("/report", { method: "POST", body: JSON.stringify({ id: messageId }) })
+    }
+  </script>
 </footer>
 
 

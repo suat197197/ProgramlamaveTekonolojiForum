@@ -153,8 +153,8 @@ border-left: 3px solid rgb(225, 229, 235);
 
 .ustbolme :hover{
     
-  border: 0px;
-   background-color:rgb(20,25,31);
+  border-color: #0056b3;
+  background-color:rgb(20,25,31);
 }
 
 .kurallar{

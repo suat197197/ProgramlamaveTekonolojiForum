@@ -54,13 +54,33 @@ body{
     width: 100px;
     height: 20px;
     text-align: center;
+    margin-right: 1%;
+
     
 }
 .konu li{
     width: 100%;
     height: 13vh;
     list-style-type:none;
-margin-left: 0px;    
+margin-left: 0px;  
+border-right: 0.5px solid whitesmoke;
+border-left: 0.5px solid whitesmoke;
+
+border-radius: 20px;
+display: block;
+margin-top: 2%; 
+}
+
+.konu ul :hover{
+    background-color: #091e35;
+    border: 0px;
+}
+
+.konu img{
+    margin-left: 1%;
+    border-radius: 50%; 
+    width: 5%; 
+    margin-top: 1% ;
 }
 
 
@@ -79,12 +99,19 @@ margin-left: 0px;
     margin-left: 8%;
 }
 
-.konu h2{
+.konu h3{
     color: whitesmoke;
-    width: 140%;
-    margin-left: 0%;
-    border-bottom: 1px solid whitesmoke;
+    width: 90%;
+    margin-left: 5%;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
     text-align: center;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 12px;
+  background: 
+    linear-gradient(rgb(20,25,31), rgb(20,25,31)) padding-box, /* içerik arka planı */
+    linear-gradient(to right, #214a97, rgb(20,25,31)) border-box; /* kenarlık gradyanı */
 }
 
 .sagtaraf{
@@ -306,7 +333,7 @@ button {
     text-align: center;
     margin-left: -50%;
     margin-right: -100;
-    width: 250%;
+    width: 225%;
     height: 50px;
     border: 1px solid rgb(99, 98, 98);   
     border-radius: 10px;
@@ -342,8 +369,8 @@ border-left: 3px solid rgb(225, 229, 235);
 
 .ustbolme :hover{
 
-  border: 0px;
-   background-color:rgb(20,25,31);
+border-color: #007bff; 
+background-color:rgb(20,25,31);
 }
 
 

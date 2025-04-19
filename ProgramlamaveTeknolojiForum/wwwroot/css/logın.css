@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+body{
+    
+    background-color:rgb(20,25,31);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+   .register-container {
+    background-color:rgb(20,25,31);
+    padding: 100px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgb(46, 56, 116);
+    width: 100%;
+  }
+
+  .register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: whitesmoke;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: whitesmoke;
+
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color:rgb(20,25,31);
+    color: whitesmoke;
+
+  }
+
+  .profile-preview {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    color: whitesmoke;
+  }
+
+  .form-group input[type="file"] {
+    border: none;
+    color: whitesmoke;
+    
+
+  }
+
+  .show-password {
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #007bff;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }

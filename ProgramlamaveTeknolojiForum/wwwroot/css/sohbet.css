@@ -36,9 +36,11 @@ body {
 .ustbolme{
     text-align: center;
 
-    width: 110%;
+    width: 100%;
     height: 50px;
-    border: 1px solid rgb(99, 98, 98);   
+    border-bottom: 1px solid rgb(99, 98, 98);
+    border-top: 1px solid rgb(99, 98, 98);   
+   
     border-radius: 10px;
     text-align: left;
     background-color:rgb(20,25,31);
@@ -69,12 +71,13 @@ border-left: 3px solid rgb(225, 229, 235);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: small;
+    margin-left: 1%;
 }
 
 .ustbolme :hover{
     
-  border: 0px;
-   background-color:rgb(20,25,31);
+border-color: #0056b3;
+background-color:rgb(20,25,31);
 }
 
 

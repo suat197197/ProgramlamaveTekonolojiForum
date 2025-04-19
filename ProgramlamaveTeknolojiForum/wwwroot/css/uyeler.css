@@ -34,6 +34,76 @@ body{
    margin-top: -2%;
 }
 
+.uyeler{
+    width: 70%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 1000px;
+    border: 0px solid whitesmoke;
+    border-radius: 10px;
+}
+.uyeler b{
+    float: right;
+    margin-right: 10%;
+}
+
+.uyeler a{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.uyeler h3{
+    margin-left: 10%;
+}
+.uyeler button{
+    margin-left: 12%;
+    background-color: #16295f;
+}
+.uye{
+    width: 40%;
+    border-right: 2px solid rgb(99, 98, 98);
+    border-left: 2px solid rgb(99, 98, 98);
+    height: 250px;
+    color: whitesmoke;
+    float: left;
+    border-radius: 20px;
+}
+
+.uye button{
+    text-align: center;
+    width: 75%;
+    color: whitesmoke;
+}
+.uye a{
+    color: whitesmoke;
+    text-decoration: none;
+    width: 100%;
+   
+}
+
+.uye1{
+    width: 40%;
+    border-right: 2px solid rgb(99, 98, 98);
+    border-left: 2px solid rgb(99, 98, 98);
+    height: 250px;
+    color: whitesmoke;
+    float: left;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+
+.uye1 button{
+    text-align: center;
+    width: 75%;
+    color: whitesmoke;
+}
+.uye1 a{
+    color: whitesmoke;
+    text-decoration: none;
+    width: 100%;
+   
+}
+
+
 .modal {
     display: none;
     position: fixed;
@@ -173,7 +243,7 @@ border-left: 3px solid rgb(225, 229, 235);
     color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 25%;
+    margin-top: 5%;
 }
 
 .footer-content {

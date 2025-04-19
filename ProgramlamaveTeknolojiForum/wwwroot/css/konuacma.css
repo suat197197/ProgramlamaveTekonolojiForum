@@ -104,18 +104,21 @@ button {
     color: rgb(78, 87, 99);
     border-radius: 5px;
 }
-.google-login {
-    align-items: center;
-    justify-content: center;
-    padding: 3px;
-    border-radius: 5px;
-    cursor: pointer;
+
+.message button{
+    background-color: rgb(20,25,31);
+
 }
-.google-login img {
-    width: 20px;
-    text-align: center;
-    margin-left: 47%;
-}
+.report-button {
+    color: rgb(73, 6, 6);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    
+  }
+  .report-button:hover {
+    background-color: #e60000;
+  }
 .ustbolme{
     text-align: center;
     
