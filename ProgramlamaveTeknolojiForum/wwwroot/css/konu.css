@@ -325,6 +325,29 @@ border-left: 3px solid rgb(225, 229, 235);
     color: gray;
 }
 
+.message button{
+    float: left;
+    background-color:rgb(31, 40, 51);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 17%;
+
+}
+
+.report-button {
+
+    color: whitesmoke;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    
+  }
+  .report-button:hover {
+    background-color: #1a5228;
+    color: black;
+  }
+
 .footer {
     background-color:rgb(23, 34, 48);  
     border-top: 1px solid rgb(99, 98, 98);
