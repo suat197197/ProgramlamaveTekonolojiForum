@@ -1,5 +1,5 @@
-﻿Kullanıcı giriş
-Çıkış
+﻿Kullanıcı giriş biraz yapıldı kayıt yapılacak 
+Çıkış 
 Kayıt ol
 Neler Yeni
 Üyeler
@@ -13,3 +13,6 @@ yeni konu aç üye değilse kayıt ola yönlendirilecek
 soru sor üye değilse kayıt ola yönlendirecel
 giriş sayfasına şifremi unuttum yapılacak
 şifre değiştir yapılacak
+admin sayfası banlana ve uyarı gönderme
+beğenme sayı artırma
+soru cevap oylama

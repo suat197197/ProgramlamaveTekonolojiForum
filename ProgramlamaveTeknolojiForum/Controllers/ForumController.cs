@@ -28,21 +28,20 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 {
                     y.IdKullanici = 0;
                     y.KullaniciTip = 0;
+                    y.TakmaAd = "";
                 }
                 else
                 {
                     y.IdKullanici = int.Parse(Request.Cookies["IdKullanici"].ToString());
                     y.KullaniciTip = int.Parse(Request.Cookies["KullaniciTip"].ToString());
+                    y.TakmaAd = Request.Cookies["TakmaAd"].ToString();
                 }
-
-
-
-           }
+            }
             else
             {
                 y.IdKullanici = int.Parse(HttpContext.Session.GetString("IdKullanici").ToString());
                 y.KullaniciTip = int.Parse(HttpContext.Session.GetString("KullaniciTip").ToString());
-
+                y.TakmaAd = HttpContext.Session.GetString("TakmaAd");
 
             }
 
@@ -58,15 +57,17 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 Path = "/", // Cookie is available within the entire application
                 Secure = true, // Ensure the cookie is only sent over HTTPS
                 HttpOnly = true, // Prevent client-side scripts from accessing the cookie
-                MaxAge = TimeSpan.FromDays(7), // Another way to set the expiration time
+                MaxAge = TimeSpan.FromDays(180), // Another way to set the expiration time
                 IsEssential = true // Indicates the cookie is essential for the application to function
             };
             Response.Cookies.Append("IdKullanici", yetki.IdKullanici.ToString(), options);
             Response.Cookies.Append("KullaniciTip", yetki.KullaniciTip.ToString(), options);
+            Response.Cookies.Append("TakmaAd", yetki.TakmaAd.ToString(), options);
 
             HttpContext.Session.SetString("IdKullanici", yetki.IdKullanici.ToString());
             HttpContext.Session.SetString("KullaniciTip",yetki.KullaniciTip.ToString());
-    
+            HttpContext.Session.SetString("TakmaAd",yetki.TakmaAd.ToString());
+
         }
         public IActionResult AnaSayfa()
         {
@@ -129,9 +130,6 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             post.IdUstPost = AnaPostId;
             post.BegenmeSayi = 0;
             veri.TblPostKayitEkle(post);
-
-
-
             return View(model);
         }
         [HttpGet]
