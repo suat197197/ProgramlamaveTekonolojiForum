@@ -157,13 +157,13 @@ namespace kutuphane
                 Baglanti b = new Baglanti();
                 using (SqlConnection con = b.BaglantiGetir())
                 {
-                    var sql = @"select k.Id IdKullanici, k.Tip KullaniciTip from Kullanici k
+                    var sql = @"select k.Id IdKullanici, k.Tip KullaniciTip,k.TakmaAd from Kullanici k
 where (k.Eposta=@KullaniciAdi or k.TakmaAd=@KullaniciAdi)
 and k.Sifre=@Sifre";
                     List<KullaniciYetki> gelenData = con.Query<KullaniciYetki>(sql, new { KullaniciAdi = KullaniciAdi,Sifre=Sifre }).ToList();
                     if (gelenData.Count()==0)
                     {
-                        return new KullaniciYetki { IdKullanici = 0, KullaniciTip = 0 };
+                        return new KullaniciYetki { IdKullanici = 0, KullaniciTip = 0,TakmaAd="" };
                     }
                     else
                     {

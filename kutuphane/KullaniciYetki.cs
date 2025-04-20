@@ -10,6 +10,7 @@ namespace kutuphane
     {
         public int IdKullanici { get; set; }
         public int KullaniciTip { get; set; }
+        public string TakmaAd { get; set; }
 
     }
 }

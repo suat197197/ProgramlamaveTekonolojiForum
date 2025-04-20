@@ -18,7 +18,8 @@ namespace kutuphane
 
                 using (SqlConnection con = b.BaglantiGetir())
                 {
-                    var sql = @"select t.*,k.Id KullaniciId,k.TakmaAd ,k.Resim,t1.MesajSayi,t2.BegenmeSayi from 
+                    var sql = @"select t.*,k.Id KullaniciId,k.TakmaAd ,k.Resim,t1.MesajSayi,t2.BegenmeSayi,
+k.KayitTarihi KullaniciKayitTarihi from 
 (select * from Post p
 where p.Id=@PostId
 and p.IdUstPost=0 and p.Durum=1
@@ -71,7 +72,8 @@ order by t.KayitTarihi asc";
                                           ,Icerik
                                           ,KayitTarihi
                                           ,GoruntulenmeSayi
-                                          ,Durum)
+                                          ,Durum
+                                          ,BegenmeSayi  )
                                  VALUES          
                                            (@IdKullanici
                                           ,@IdKategori
@@ -81,7 +83,8 @@ order by t.KayitTarihi asc";
                                            ,@Icerik
                                           ,@KayitTarihi
                                           ,@GoruntulenmeSayi
-                                          ,@Durum)
+                                          ,@Durum
+                                           ,@BegenmeSayi)
                                       ;SELECT CAST(SCOPE_IDENTITY() as int)";
                     Id = con.Query<int>(sql
                     , new
@@ -94,7 +97,10 @@ order by t.KayitTarihi asc";
                         KayitTarihi = kayit.KayitTarihi,
                         GoruntulenmeSayi = kayit.GoruntulenmeSayi,
                         Durum = kayit.Durum,
-                        Icerik=kayit.Icerik
+                        Icerik=kayit.Icerik,
+                        BegenmeSayi=kayit.BegenmeSayi
+
+                        
                     }).FirstOrDefault();
                     eklenen.Id = Id ?? 0;
                 }

@@ -28,21 +28,20 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 {
                     y.IdKullanici = 0;
                     y.KullaniciTip = 0;
+                    y.TakmaAd = "";
                 }
                 else
                 {
                     y.IdKullanici = int.Parse(Request.Cookies["IdKullanici"].ToString());
                     y.KullaniciTip = int.Parse(Request.Cookies["KullaniciTip"].ToString());
+                    y.TakmaAd = Request.Cookies["TakmaAd"].ToString();
                 }
-
-
-
-           }
+            }
             else
             {
                 y.IdKullanici = int.Parse(HttpContext.Session.GetString("IdKullanici").ToString());
                 y.KullaniciTip = int.Parse(HttpContext.Session.GetString("KullaniciTip").ToString());
-
+                y.TakmaAd = HttpContext.Session.GetString("TakmaAd");
 
             }
 
@@ -53,23 +52,26 @@ namespace ProgramlamaveTeknolojiForum.Controllers
         {
             CookieOptions options = new CookieOptions
             {
-                Domain = "example.com", // Set the domain for the cookie
+                Domain = "proteknoforum.com", // Set the domain for the cookie
                 Expires = DateTime.Now.AddDays(7), // Set expiration date to 7 days from now
                 Path = "/", // Cookie is available within the entire application
                 Secure = true, // Ensure the cookie is only sent over HTTPS
                 HttpOnly = true, // Prevent client-side scripts from accessing the cookie
-                MaxAge = TimeSpan.FromDays(7), // Another way to set the expiration time
+                MaxAge = TimeSpan.FromDays(180), // Another way to set the expiration time
                 IsEssential = true // Indicates the cookie is essential for the application to function
             };
             Response.Cookies.Append("IdKullanici", yetki.IdKullanici.ToString(), options);
             Response.Cookies.Append("KullaniciTip", yetki.KullaniciTip.ToString(), options);
+            Response.Cookies.Append("TakmaAd", yetki.TakmaAd.ToString(), options);
 
             HttpContext.Session.SetString("IdKullanici", yetki.IdKullanici.ToString());
             HttpContext.Session.SetString("KullaniciTip",yetki.KullaniciTip.ToString());
-    
+            HttpContext.Session.SetString("TakmaAd",yetki.TakmaAd.ToString());
+
         }
         public IActionResult AnaSayfa()
         {
+          
             
             AnaSayfaModel m = new AnaSayfaModel();
             m.yetki = KullaniciYetkiGetir();
@@ -79,6 +81,9 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             m.KonuSoruKategori = verik.TumKategoriVeriGetir();
             m.SoruKategori = verik.SoruKategoriVeriGetir();
             m.KonuKategori = verik.KonuKategoriVeriGetir();
+            KullaniciYetki yetki = new KullaniciYetki();
+            yetki = KullaniciYetkiGetir();
+            m.yetki = yetki;
             return View(m);
         }
         public IActionResult SoruCevap()
@@ -101,44 +106,61 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             m.Konular = veri.KonularSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.KonuKategori = verik.KonuKategoriVeriGetir();
-            m.Postlar = veri.TblTumPostKayitGetir_Id(id);
-
-
-
-
+            List<TblPostlar> postlar = new List<TblPostlar>();
+            postlar = veri.TblTumPostKayitGetir_Id(id);
+            m.AnaPost=postlar.Single(c=>c.IdUstPost==0);
+            ViewBag.AnaPostId = m.AnaPost.Id;
+            ViewBag.IdKategori = m.AnaPost.IdKategori;
+            m.DigerPostlar = postlar.Where(c => c.IdUstPost != 0).ToList();
             return View(m);
         }
-        [HttpGet]
-        public IActionResult KonuAc(int id)
-        {
-            ViewBag.IdKategori = id;
-
-
-            return View();
-        }
         [HttpPost]
-        public IActionResult KonuAc(KonuAcSayfaModel model, int IdKategori)
+        public IActionResult Konu(KonuSayfaModel model,int IdKategori,int AnaPostId)
         {
             TblPostVeri veri = new TblPostVeri();
             TblPost post = new TblPost();
             post.IP = "1";
             post.Durum = 1;
-            post.Tip = 1;
+            post.KayitTarihi = DateTime.Now;
+            post.Icerik = model.Icerik;
+            post.IdKullanici = 3;
+            //post.IdKullanici = KullaniciYetkiGetir().IdKullanici;
             post.GoruntulenmeSayi = 0;
             post.IdKategori = IdKategori;
-            ///Session dan gelecek
+            post.IdUstPost = AnaPostId;
+            post.BegenmeSayi = 0;
+            veri.TblPostKayitEkle(post);
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult KonuAc(int id)
+        {
+            ViewBag.IdKategori = id;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult KonuAc(KonuAcSayfaModel model, int IdKategori)
+        {
+            KullaniciYetki y = KullaniciYetkiGetir();
+            TblPostVeri veri = new TblPostVeri();
+            TblPost post = new TblPost();
+            post.IP = "1";
+            post.Durum = 1;
             post.IdKullanici = 3;
+            //post.IdKullanici= KullaniciYetkiGetir().IdKullanici;
+            post.GoruntulenmeSayi = 0;
+            post.IdKategori = IdKategori;
+            post.BegenmeSayi = 0;
+            post.IdKullanici = y.IdKullanici;
             post.IdUstPost = 0;
             post.Baslik = model.Baslik;
             post.Icerik = model.Icerik;
-            post.IdKategori = model.IdKategori;
             post.KayitTarihi = DateTime.Now;
             veri.TblPostKayitEkle(post);
 
             return View();
         }
         [HttpPost]
-
         public JsonResult KullaniciGiris(string KullaniciAdi,string Sifre)
         {
             TblKullaniciVeri kveri = new TblKullaniciVeri();
@@ -148,6 +170,5 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             
             return Json(yetki);
         }
-
     }
 }
