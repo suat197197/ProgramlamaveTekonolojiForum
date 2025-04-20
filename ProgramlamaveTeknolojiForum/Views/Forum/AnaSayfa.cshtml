@@ -85,7 +85,7 @@
     </div>
     <div class="sagtaraf">
         <div>
-            <button onclick="openPopupkonu()" @* type="submit" *@ href="" class=" btn-1"><b>Yeni Konu Aç</b> </button>
+            <button onclick="openPopupkonu()" class=" btn-1"><b>Yeni Konu Aç</b> </button>
             <div class="sepopup" id="popupkonu">
                 <div class="sepopup-content">
                     <div class="konuacbaslık">
@@ -120,7 +120,7 @@
                 }
             </script>
             <button onclick="openPopupsoru()" type="submit" href="" class=" btn-2"><b>Soru-Cevap</b> </button>
-            <input asp-for="@Model.yetki.IdKullanici" id="inputyetki" display="none" />
+            <input asp-for="@Model.yetki.IdKullanici" id="inputyetki" type="hidden" display="none" />
             <div class="sepopup" id="popupsoru">
                 <div class="sepopup-content">
                     <div class="konuacbaslık">
