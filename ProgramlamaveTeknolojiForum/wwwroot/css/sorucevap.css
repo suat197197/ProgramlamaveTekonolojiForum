@@ -168,7 +168,7 @@ border-left: 3px solid rgb(225, 229, 235);
     border-top: 1px solid rgb(99, 98, 98);  
       width: 60%;
     margin-left: 15%;
-    background-image: linear-gradient( rgb(20,25,31),rgb(13, 20, 27)) ;
+    background-image: linear-gradient(rgb(13, 20, 27), rgb(5, 27, 88)) ;
     border-radius: 20px;
 
 }
@@ -201,7 +201,7 @@ border-left: 3px solid rgb(225, 229, 235);
 }
 .user-info {
     
-    background-image: linear-gradient( rgb(20,25,31),rgb(13, 20, 27)) ;
+    background-image: linear-gradient( rgb(20,25,31),rgb(14, 33, 83)) ;
 
     width: 14%;
     padding: 15px;

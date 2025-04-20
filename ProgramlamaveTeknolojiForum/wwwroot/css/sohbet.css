@@ -165,9 +165,9 @@ background-color:rgb(20,25,31);
   .message-box {
     background-color: #2a2f36;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 20px;
   }
   
