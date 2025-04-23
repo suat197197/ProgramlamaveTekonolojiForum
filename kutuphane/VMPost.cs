@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,6 @@ namespace kutuphane
     public class VMPost
     {
         public int KulaniciId { get; set; }
-        public byte?[] Resim { get; set; }
         public string TakmaAd { get; set; }
         public DateTime KullaniciKayitTarihi { get; set; }
         public int KullaniciTip { get; set; }
@@ -26,6 +26,7 @@ namespace kutuphane
         public int YorumSayi { get; set; }
         public int IdUstKategori { get; set; }
         public string UstKategoriAdi { get; set; }
+        public byte[] Resim { get; set; }
 
 
 

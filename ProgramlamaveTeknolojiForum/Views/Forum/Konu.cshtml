@@ -103,7 +103,9 @@
                 {
                     <div class="post">
                         <div class="user-info">
-                            <img src="img/indir.png" alt="User Avatar">
+
+                            <img src="data:image/png;base64,@Convert.ToBase64String(item.Resim)">
+                            @*  <img src="img/indir.png" alt="User Avatar"> *@
                             <div class="username">@item.TakmaAd</div>
                             <br>
                             <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">@item.KullaniciKayitTarihi</a></div>
@@ -118,27 +120,28 @@
                     </div>
                 }
 
-                <form asp-action="Konu" asp-controller="Forum">
-                    <div><input asp-for="@Model.Icerik" id="IcerikInput" style="display:none;" /></div>
+
+                <div><input asp-for="@Model.Icerik" id="IcerikInput" style="display:none;" /></div>
 
 
-                    <div class="reply-box">
-                        <div class="user-info1">
-                            <img src="img/indir.png" alt="User Avatar">
-                            <div style="color: whitesmoke;" class="username"> Suat Özkaya</div>
-                            <br>
-                            <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">@Model.AnaPost.KullaniciKayitTarihi</a></div>
-                            <div class="mesaj"><a style="float:left;">Mesajlar: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">@Model.AnaPost.MesajSayi</a></div>
-                            <div class="mesaj"><a style="float:left;">Beğeniler: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">@Model.AnaPost.BegenmeSayi</a></div>
-                        </div>
-                        <div class="konu">
-                            <div id="editor">
-                            </div>
-                            <button id="submitbtn"><i class="fa-solid fa-reply fa-lg" style="color: #ffffff;"></i> Cevap Ekle</button>
-                        </div>
+                <div class="reply-box">
+                    <div class="user-info1">
 
+                        <img src="data:image /png;base64,@Convert.ToBase64String(Model.AnaPost.Resim)">
+                        <div style="color: whitesmoke;" class="username"> Suat Özkaya</div>
+                        <br>
+                        <div class="date"> <a style="float:left;">Katılım: </a> &nbsp;&nbsp;&nbsp;&nbsp;   <a style="float: right;">@Model.AnaPost.KullaniciKayitTarihi</a></div>
+                        <div class="mesaj"><a style="float:left;">Mesajlar: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">@Model.AnaPost.MesajSayi</a></div>
+                        <div class="mesaj"><a style="float:left;">Beğeniler: </a> &nbsp;&nbsp;&nbsp;&nbsp;  <a style="float: right;">@Model.AnaPost.BegenmeSayi</a></div>
                     </div>
-                </form>
+                    <div class="konu">
+                        <div id="editor">
+                        </div>
+                        <button id="submitbtn"><i class="fa-solid fa-reply fa-lg" style="color: #ffffff;"></i> Cevap Ekle</button>
+                    </div>
+
+                </div>
+
 
 
                 <script>
@@ -173,7 +176,8 @@
 
 
         </div>
-    </form>
+    
+
     <br>
     <br>
     <br>
@@ -195,7 +199,7 @@
             <div class="popup-footer">
                 <span class="close-btn" id="close-popup">&times;</span>
                 <h2>Bize Ulaşın</h2>
-                <form>
+                
                     <label for="email">E-posta:</label>
                     <input type="email" id="email" name="email" required>
 
@@ -206,7 +210,7 @@
                     <textarea id="message" name="message" required></textarea>
 
                     <button type="submit">Gönder</button>
-                </form>
+                
             </div>
         </div>
 
@@ -226,7 +230,7 @@
             });
         </script>
     </footer>
-
+    </form>
 
     <script>
         const quill = new Quill('#editor', {

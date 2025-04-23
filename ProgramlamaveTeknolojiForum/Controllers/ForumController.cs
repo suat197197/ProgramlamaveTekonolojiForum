@@ -14,6 +14,10 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 Response.Cookies.Delete(cookie);
             }
         }
+        public FileResult GetFileFromBytes(byte[] bytesIn)
+        {
+            return File(bytesIn, "image/png");
+        }
         public void Sessionsil()
         {
             HttpContext.Session.Clear();
@@ -99,20 +103,27 @@ namespace ProgramlamaveTeknolojiForum.Controllers
 
             return View(m);
         }
+
+       
+        [HttpGet]
         public IActionResult Konu(int id)
         {
-            KonuSayfaModel m = new KonuSayfaModel();
-            TblPostVeri veri = new TblPostVeri();
-            m.Konular = veri.KonularSayfaVeriGetir();
-            TblKAtegoriVeri verik = new TblKAtegoriVeri();
-            m.KonuKategori = verik.KonuKategoriVeriGetir();
-            List<TblPostlar> postlar = new List<TblPostlar>();
-            postlar = veri.TblTumPostKayitGetir_Id(id);
-            m.AnaPost=postlar.Single(c=>c.IdUstPost==0);
-            ViewBag.AnaPostId = m.AnaPost.Id;
-            ViewBag.IdKategori = m.AnaPost.IdKategori;
-            m.DigerPostlar = postlar.Where(c => c.IdUstPost != 0).ToList();
-            return View(m);
+            
+            
+
+                KonuSayfaModel m = new KonuSayfaModel();
+                TblPostVeri veri = new TblPostVeri();
+                m.Konular = veri.KonularSayfaVeriGetir();
+                TblKAtegoriVeri verik = new TblKAtegoriVeri();
+                m.KonuKategori = verik.KonuKategoriVeriGetir();
+                List<TblPostlar> postlar = new List<TblPostlar>();
+                postlar = veri.TblTumPostKayitGetir_Id(id);
+                m.AnaPost = postlar.Single(c => c.IdUstPost == 0);
+                ViewBag.AnaPostId = m.AnaPost.Id;
+                ViewBag.IdKategori = m.AnaPost.IdKategori;
+                m.DigerPostlar = postlar.Where(c => c.IdUstPost != 0).ToList();
+            
+                return View(m);
         }
         [HttpPost]
         public IActionResult Konu(KonuSayfaModel model,int IdKategori,int AnaPostId)
@@ -130,7 +141,7 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             post.IdUstPost = AnaPostId;
             post.BegenmeSayi = 0;
             veri.TblPostKayitEkle(post);
-            return View(model);
+            return RedirectToAction("Konu",new {id=AnaPostId});
         }
         [HttpGet]
         public IActionResult KonuAc(int id)
@@ -167,7 +178,6 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             KullaniciYetki yetki = new KullaniciYetki();
             yetki=kveri.KullaniciGiris(KullaniciAdi, Sifre);
             KullaniciYetkiEkle(yetki);
-            
             return Json(yetki);
         }
     }

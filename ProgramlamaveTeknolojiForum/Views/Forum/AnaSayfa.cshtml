@@ -73,6 +73,7 @@
                 {
                     <li>
                         <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="~/css/img/indir.png">
+
                         <a asp-action="Konu" asp-route-id="@item.PostId"><h1>@item.PostBaslik</h1></a>
                         <a>@Html.Raw(item.Icerik)</a>
                         <label for="">Konu</label>

@@ -45,17 +45,22 @@ namespace kutuphane
                                ,IP
                                ,Tip
                                ,KayitTarihi
-                               ,GuncellemeTarihi
-                               ,Durum)
+                               ,Durum
+                               ,AdSoyad
+                                ,Resim
+                               )
                                 VALUES
                                (@TakmaAd
-                               ,@Sifre,
-                               ,@EPosta,
-                               ,@IP, 
-                               ,@Tip,
-                               ,@KayitTarihi,
-                               ,@GuncellemeTarihi,
-                               ,@Durum);SELECT CAST(SCOPE_IDENTITY() as int)";
+                               ,@Sifre
+                               ,@EPosta
+                               ,@IP
+                               ,@Tip
+                               ,@KayitTarihi
+                               ,@Durum
+                                ,@AdSoyad
+                                ,@Resim
+
+                               );SELECT CAST(SCOPE_IDENTITY() as int)";
                     Id = con.Query<int>(sql
                     , new
                     {
@@ -64,8 +69,10 @@ namespace kutuphane
                         EPosta = kayit.EPosta,
                         IP = kayit.IP,
                         Tip = kayit.Tip,
-                        KayitTarihi = DateTime.Now,
-                        Durum = kayit.Durum
+                        KayitTarihi = kayit.KayitTarihi,
+                        Durum = kayit.Durum,
+                        AdSoyad=kayit.AdSoyad,
+                        Resim=kayit.Resim
 
                     }).FirstOrDefault();
                     eklenen.Id = Id ?? 0;

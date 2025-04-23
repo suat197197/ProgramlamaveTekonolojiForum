@@ -23,6 +23,7 @@ namespace kutuphane
         public int MesajSayi { get; set; }
         public int BegenmeSayi { get; set; }
         public DateTime KullaniciKayitTarihi { get; set; }
+        public byte[] Resim { get; set; }
 
 
     }
