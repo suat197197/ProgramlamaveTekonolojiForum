@@ -21,26 +21,19 @@
             <a asp-action="Giris" asp-controller="Kullanici" style="margin-right: 25%;">
                 Giriş Yap
             </a>
+            <a asp-action="Kayit" asp-controller="Kullanici" style="margin-right: 25%;">
+                Kayıt Ol
+            </a>
         }
         else
         {
             <span> @Model.yetki.TakmaAd </span>
+            <a asp-action="Cikis" asp-controller="Kullanici" style="margin-right: 25%;">
+                Çıkış Yap
+            </a>
         }
-        <button onclick="openModal('registerModal')">Kayıt Ol</button>
-        <div id="registerModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('registerModal')">&times;</span>
-                <h2>Kayıt Ol</h2>
-                <br><br><br><br><br><br><br><br>
-                <input type="text" placeholder="Kullanıcı Adı"><br><br>
-                <input type="email" placeholder="E-posta"><br><br>
-                <input type="password" placeholder="Şifre"><br><br>
-                <button>Kayıt Ol</button>
-                <div class="google-login">
-                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
-                </div>
-            </div>
-        </div>
+      
+       
         <script>
             function openModal(id) {
             document.getElementById(id).style.display = 'block';
@@ -72,8 +65,8 @@
                 @foreach (var item in Model.KonularSorular)
                 {
                     <li>
-                        <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="~/css/img/indir.png">
-
+                        @* <img style="border-radius: 50%; width: 5%; margin-top: 1% ;" src="~/css/img/indir.png"> *@
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.Resim)">
                         <a asp-action="Konu" asp-route-id="@item.PostId"><h1>@item.PostBaslik</h1></a>
                         <a>@Html.Raw(item.Icerik)</a>
                         <label for="">Konu</label>

@@ -128,5 +128,12 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             return View();
 
         }
+        public IActionResult Cikis()
+        {
+            Sessionsil();
+            Cookiesil();
+            return RedirectToAction("AnaSayfa", "Forum");
+        }
+
     }
 }

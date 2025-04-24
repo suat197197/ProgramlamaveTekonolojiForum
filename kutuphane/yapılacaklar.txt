@@ -1,18 +1,15 @@
-﻿Kullanıcı giriş biraz yapıldı kayıt yapılacak 
-Çıkış 
-Kayıt ol
-Neler Yeni
+﻿Neler Yeni veritabanı odeaweb
+yeni konu aç üye değilse kayıt ola yönlendirilecek (popup)
+soru sor üye değilse kayıt ola yönlendirecel(popup)
 Üyeler
-Quill genişlet
-Kullanıcı resim göster
-Resim ekleme
+Resim ekleme cevap ekle çalışmadı
 Soru ekle sayfası
 profil sayfası
 forumda ara
-yeni konu aç üye değilse kayıt ola yönlendirilecek
-soru sor üye değilse kayıt ola yönlendirecel
 giriş sayfasına şifremi unuttum yapılacak
 şifre değiştir yapılacak
 admin sayfası banlana ve uyarı gönderme
 beğenme sayı artırma
 soru cevap oylama
+forumda ara
+Admin(Moderator) sayfası yapılacak
