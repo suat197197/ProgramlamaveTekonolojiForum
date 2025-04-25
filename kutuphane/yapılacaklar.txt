@@ -1,15 +1,14 @@
 ﻿Neler Yeni veritabanı odeaweb
-yeni konu aç üye değilse kayıt ola yönlendirilecek (popup)
-soru sor üye değilse kayıt ola yönlendirecel(popup)
-Üyeler
+soru sor üye değilse kayıt ola yönlendirecek
+Üyeler sayfası
 Resim ekleme cevap ekle çalışmadı
 Soru ekle sayfası
 profil sayfası
 forumda ara
-giriş sayfasına şifremi unuttum yapılacak
+giriş sayfasına şifremi unuttum yapılacak mail atılacak
 şifre değiştir yapılacak
-admin sayfası banlana ve uyarı gönderme
 beğenme sayı artırma
 soru cevap oylama
-forumda ara
-Admin(Moderator) sayfası yapılacak
+forumda ara popup yapılacak
+Admin(Moderator) sayfası yapılacak admin sayfası banlana ve uyarı gönderme
+
