@@ -1,6 +1,7 @@
 ﻿using kutuphane;
 using Microsoft.AspNetCore.Mvc;
 using ProgramlamaveTeknolojiForum.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProgramlamaveTeknolojiForum.Controllers
 {
@@ -77,7 +78,7 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Giris(string username,string password)
+        public IActionResult Giris(string username, string password)
         {
             TblKullaniciVeri veri = new TblKullaniciVeri();
             KullaniciYetki yetki = veri.KullaniciGiris(username, password);
@@ -94,7 +95,45 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 ViewBag.Dogrumu = 1;
                 return RedirectToAction("AnaSayfa", "Forum");
             }
-            
+
         }
+        public IActionResult Kayit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Kayit(string fullname, string username, string email, string password, IFormFile Resim)
+        {
+
+
+
+            TblKullaniciVeri veri = new TblKullaniciVeri();
+            TblKullanici k = new TblKullanici();
+            k.IP = null;
+            k.KayitTarihi = DateTime.Now;
+            k.Sifre = password;
+            k.Tip = 3;
+            k.Durum = 1;
+            k.EPosta = email;
+            if (Resim.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    Resim.CopyTo(ms);
+                    k.Resim = ms.ToArray();
+                }
+            }
+            k.AdSoyad = fullname;
+            veri.TblKullaniciKayitEkle(k);
+            return View();
+
+        }
+        public IActionResult Cikis()
+        {
+            Sessionsil();
+            Cookiesil();
+            return RedirectToAction("AnaSayfa", "Forum");
+        }
+
     }
 }

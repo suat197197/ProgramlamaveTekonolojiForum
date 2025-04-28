@@ -14,6 +14,10 @@ namespace ProgramlamaveTeknolojiForum.Controllers
                 Response.Cookies.Delete(cookie);
             }
         }
+        public FileResult GetFileFromBytes(byte[] bytesIn)
+        {
+            return File(bytesIn, "image/png");
+        }
         public void Sessionsil()
         {
             HttpContext.Session.Clear();
@@ -65,14 +69,14 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             Response.Cookies.Append("TakmaAd", yetki.TakmaAd.ToString(), options);
 
             HttpContext.Session.SetString("IdKullanici", yetki.IdKullanici.ToString());
-            HttpContext.Session.SetString("KullaniciTip",yetki.KullaniciTip.ToString());
-            HttpContext.Session.SetString("TakmaAd",yetki.TakmaAd.ToString());
+            HttpContext.Session.SetString("KullaniciTip", yetki.KullaniciTip.ToString());
+            HttpContext.Session.SetString("TakmaAd", yetki.TakmaAd.ToString());
 
         }
         public IActionResult AnaSayfa()
         {
-          
-            
+
+
             AnaSayfaModel m = new AnaSayfaModel();
             m.yetki = KullaniciYetkiGetir();
             TblPostVeri veri = new TblPostVeri();
@@ -90,16 +94,16 @@ namespace ProgramlamaveTeknolojiForum.Controllers
         {
             SoruCevapModel m = new SoruCevapModel();
             TblPostVeri veri = new TblPostVeri();
-
             m.Sorular = veri.SorularSayfaVeriGetir();
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.SoruKategori = verik.SoruKategoriVeriGetir();
             m.KonuKategori = verik.KonuKategoriVeriGetir();
-
-
             return View(m);
         }
-        public IActionResult Konu(int id)
+
+
+        [HttpGet]
+        public IActionResult Konu(int id, int AnaPostId)
         {
             KonuSayfaModel m = new KonuSayfaModel();
             TblPostVeri veri = new TblPostVeri();
@@ -107,15 +111,22 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             TblKAtegoriVeri verik = new TblKAtegoriVeri();
             m.KonuKategori = verik.KonuKategoriVeriGetir();
             List<TblPostlar> postlar = new List<TblPostlar>();
-            postlar = veri.TblTumPostKayitGetir_Id(id);
-            m.AnaPost=postlar.Single(c=>c.IdUstPost==0);
+            if (id!=0)
+            {
+                postlar = veri.TblTumPostKayitGetir_Id(id);
+            }
+            else
+            {
+                postlar= veri.TblTumPostKayitGetir_Id(AnaPostId);
+            }
+            m.AnaPost = postlar.Single(c => c.IdUstPost == 0);
             ViewBag.AnaPostId = m.AnaPost.Id;
             ViewBag.IdKategori = m.AnaPost.IdKategori;
             m.DigerPostlar = postlar.Where(c => c.IdUstPost != 0).ToList();
             return View(m);
         }
         [HttpPost]
-        public IActionResult Konu(KonuSayfaModel model,int IdKategori,int AnaPostId)
+        public IActionResult Konu(KonuSayfaModel model, int IdKategori, int AnaPostId)
         {
             TblPostVeri veri = new TblPostVeri();
             TblPost post = new TblPost();
@@ -123,14 +134,13 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             post.Durum = 1;
             post.KayitTarihi = DateTime.Now;
             post.Icerik = model.Icerik;
-            post.IdKullanici = 3;
-            //post.IdKullanici = KullaniciYetkiGetir().IdKullanici;
+            post.IdKullanici = KullaniciYetkiGetir().IdKullanici;
             post.GoruntulenmeSayi = 0;
             post.IdKategori = IdKategori;
             post.IdUstPost = AnaPostId;
             post.BegenmeSayi = 0;
             veri.TblPostKayitEkle(post);
-            return View(model);
+            return RedirectToAction("Konu", new { id = AnaPostId });
         }
         [HttpGet]
         public IActionResult KonuAc(int id)
@@ -146,8 +156,7 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             TblPost post = new TblPost();
             post.IP = "1";
             post.Durum = 1;
-            post.IdKullanici = 3;
-            //post.IdKullanici= KullaniciYetkiGetir().IdKullanici;
+            post.IdKullanici = KullaniciYetkiGetir().IdKullanici;
             post.GoruntulenmeSayi = 0;
             post.IdKategori = IdKategori;
             post.BegenmeSayi = 0;
@@ -161,13 +170,12 @@ namespace ProgramlamaveTeknolojiForum.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult KullaniciGiris(string KullaniciAdi,string Sifre)
+        public JsonResult KullaniciGiris(string KullaniciAdi, string Sifre)
         {
             TblKullaniciVeri kveri = new TblKullaniciVeri();
             KullaniciYetki yetki = new KullaniciYetki();
-            yetki=kveri.KullaniciGiris(KullaniciAdi, Sifre);
+            yetki = kveri.KullaniciGiris(KullaniciAdi, Sifre);
             KullaniciYetkiEkle(yetki);
-            
             return Json(yetki);
         }
     }
