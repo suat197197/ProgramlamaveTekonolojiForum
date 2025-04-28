@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Paneli</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Admin Paneli</h2>
+    <ul>
+      <li><a href="#" onclick="showSection('konular')">Konular</a></li>
+      <li><a href="#" onclick="showSection('mesajlar')">Mesajlar</a></li>
+      <li><a href="#" onclick="showSection('kullanicilar')">Kullanıcılar</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    
+    <!-- Konular -->
+    <div id="konular" class="section active">
+      <h2>Konular Yönetimi</h2>
+      <input type="text" id="searchKonular" placeholder="Konularda Ara..." oninput="searchItems('konular')">
+      <div id="konularList" class="list">
+        <div class="card" data-title="Forum Kuralları">
+          <h3>Başlık: Forum Kuralları</h3>
+          <button onclick="openEditModal(this)">Düzenle</button>
+          <button onclick="openDeleteModal(this)">Sil</button>
+        </div>
+        <div class="card" data-title="Yeni Üye Rehberi">
+          <h3>Başlık: Yeni Üye Rehberi</h3>
+          <button onclick="openEditModal(this)">Düzenle</button>
+          <button onclick="openDeleteModal(this)">Sil</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mesajlar -->
+    <div id="mesajlar" class="section">
+      <h2>Mesajlar Yönetimi</h2>
+      <input type="text" id="searchMesajlar" placeholder="Mesajlarda Ara..." oninput="searchItems('mesajlar')">
+      <div id="mesajlarList" class="list">
+        <div class="card" data-title="Merhaba herkese!">
+          <p>Kullanıcı: Ahmet123</p>
+          <p>Mesaj: Merhaba herkese!</p>
+          <button onclick="openEditModal(this)">Düzenle</button>
+          <button onclick="openDeleteModal(this)">Sil</button>
+        </div>
+        <div class="card" data-title="Yardım eder misiniz?">
+          <p>Kullanıcı: Caner45</p>
+          <p>Mesaj: Yardım eder misiniz?</p>
+          <button onclick="openEditModal(this)">Düzenle</button>
+          <button onclick="openDeleteModal(this)">Sil</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kullanıcılar -->
+    <div id="kullanicilar" class="section">
+      <h2>Kullanıcılar Yönetimi</h2>
+      <div class="card" data-username="ProblemliUser">
+        <p>Kullanıcı: ProblemliUser</p>
+        <button onclick="openWarnModal(this)">Uyarı Gönder</button>
+        <button onclick="openBanModal(this)">Banla</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body">
+        <!-- İçerik dinamik olarak buraya gelecek -->
+      </div>
+    </div>
+  </div>
+
+<script>
+let currentCard = null;
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+function openEditModal(button) {
+  currentCard = button.parentElement;
+  const title = currentCard.getAttribute('data-title') || '';
+  document.getElementById('modal-body').innerHTML = `
+    <h2>Düzenle</h2>
+    <input type="text" id="editInput" value="${title}" placeholder="Yeni başlık veya mesaj">
+    <button onclick="saveEdit()">Kaydet</button>
+  `;
+  openModal();
+}
+
+function saveEdit() {
+  const newText = document.getElementById('editInput').value.trim();
+  if (newText && currentCard) {
+    const h3 = currentCard.querySelector('h3');
+    const p = currentCard.querySelector('p:nth-child(2)');
+    if (h3) {
+      h3.textContent = "Başlık: " + newText;
+    } else if (p) {
+      p.textContent = "Mesaj: " + newText;
+    }
+    currentCard.setAttribute('data-title', newText);
+  }
+  closeModal();
+}
+
+function openDeleteModal(button) {
+  currentCard = button.parentElement;
+  const title = currentCard.getAttribute('data-title') || 'Bu öğe';
+  document.getElementById('modal-body').innerHTML = `
+    <h2>Sil</h2>
+    <p>"${title}" silinsin mi?</p>
+    <button onclick="confirmDelete()">Evet, Sil</button>
+  `;
+  openModal();
+}
+
+function confirmDelete() {
+  if (currentCard) {
+    currentCard.remove();
+  }
+  closeModal();
+}
+
+function openWarnModal(button) {
+  currentCard = button.parentElement;
+  const username = currentCard.getAttribute('data-username') || 'Kullanıcı';
+  document.getElementById('modal-body').innerHTML = `
+    <h2>${username} için Uyarı Gönder</h2>
+    <textarea id="warnMessage" placeholder="Uyarı sebebi yaz..." style="width: 100%; height: 100px; margin-bottom: 10px;"></textarea>
+    <button onclick="sendWarn()">Gönder</button>
+  `;
+  openModal();
+}
+
+function sendWarn() {
+  const message = document.getElementById('warnMessage').value.trim();
+  if (message) {
+    console.log("Uyarı gönderildi:", message);
+    closeModal();
+  } else {
+    document.getElementById('warnMessage').style.border = "2px solid red";
+  }
+}
+
+function openBanModal(button) {
+  currentCard = button.parentElement;
+  const username = currentCard.getAttribute('data-username') || 'Kullanıcı';
+  document.getElementById('modal-body').innerHTML = `
+    <h2>${username} Banlansın mı?</h2>
+    <button onclick="confirmBan()">Evet, Banla</button>
+  `;
+  openModal();
+}
+
+function confirmBan() {
+  console.log("Kullanıcı banlandı!");
+  closeModal();
+}
+
+function openModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function searchItems(section) {
+  const input = document.getElementById('search' + capitalize(section));
+  const filter = input.value.toLowerCase();
+  const list = document.getElementById(section + 'List');
+  const cards = list.getElementsByClassName('card');
+  Array.from(cards).forEach(card => {
+    const title = card.getAttribute('data-title') || '';
+    if (title.toLowerCase().includes(filter)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function capitalize(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+</script>
+
+</body>
+</html>

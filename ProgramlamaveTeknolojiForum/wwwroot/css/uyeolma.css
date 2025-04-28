@@ -68,6 +68,24 @@ body{
 
   }
 
+  .gırıs{
+    
+    text-decoration: none;
+    color: whitesmoke;
+    
+  }
+
+  .gırıs a{
+    margin-top: 1%;
+    text-decoration: none;
+    color: whitesmoke;
+    
+  }
+
+  .gırıs :hover{
+    color: #007bff;
+  }
+
   .show-password {
     margin-top: 5px;
     font-size: 14px;
